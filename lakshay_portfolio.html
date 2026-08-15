@@ -1,0 +1,1592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lakshay Parashar — Data Scientist &amp; Analytics Engineer</title>
+<meta name="description" content="Lakshay Parashar — Data Science portfolio. End-to-end analytics, machine learning, and BI projects in Python, SQL, and Power BI. Open to Data Science &amp; Analytics internships.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://lakshayparashar.dev/">
+<meta name="theme-color" content="#0E1420">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230E1420'/%3E%3Ctext x='32' y='42' font-family='monospace' font-size='26' font-weight='700' fill='%23F2A93B' text-anchor='middle'%3ELP%3C/text%3E%3C/svg%3E">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Lakshay Parashar — Data Scientist &amp; Analytics Engineer">
+<meta property="og:description" content="End-to-end analytics, machine learning, and BI projects in Python, SQL, and Power BI. Open to Data Science &amp; Analytics internships.">
+<meta property="og:url" content="https://lakshayparashar.dev/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Lakshay Parashar — Data Scientist &amp; Analytics Engineer">
+<meta name="twitter:description" content="End-to-end analytics, machine learning, and BI projects in Python, SQL, and Power BI.">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Lakshay Parashar",
+  "jobTitle": "Data Science Student & Analytics Engineer",
+  "url": "https://lakshayparashar.dev/",
+  "knowsAbout": ["Python", "SQL", "Machine Learning", "Power BI", "Data Analysis"],
+  "alumniOf": "B.Tech, Computer Science Engineering"
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  /* ==========================================================
+     DESIGN SYSTEM
+     Palette: deep navy console theme. Amber = primary accent
+     (highlights, primary actions). Teal = secondary accent
+     (in-progress, links, live status). Reused as semantic
+     success/warning colors below rather than introducing new
+     random hues.
+     ========================================================== */
+  :root{
+    --bg:#0E1420;
+    --bg-alt:#0A0F19;
+    --surface:#161D2C;
+    --surface-2:#1D2536;
+    --surface-hover:#202944;
+    --line:#2A3345;
+    --line-soft:#212B3B;
+    --text:#E8ECF3;
+    --text-dim:#A6AFC2;
+    --text-mute:#6E7891;
+
+    --amber:#F2A93B;
+    --amber-dim:#7A5A22;
+    --teal:#4FD1C5;
+    --teal-dim:#255752;
+
+    --success:#4FD187;
+    --success-dim:#1F4A34;
+    --warning:#F2A93B;
+    --warning-dim:#7A5A22;
+    --error:#E2554E;
+    --error-dim:#4A2320;
+
+    --font-display:'Space Grotesk', sans-serif;
+    --font-body:'Inter', sans-serif;
+    --font-mono:'JetBrains Mono', monospace;
+    --radius:10px;
+    --radius-lg:14px;
+    --ease:cubic-bezier(.22,.9,.28,1);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:var(--font-body);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  ::selection{background:var(--amber-dim); color:var(--amber);}
+  a{color:inherit; text-decoration:none;}
+  img{max-width:100%; display:block;}
+  ul{list-style:none;}
+  .wrap{max-width:1120px; margin:0 auto; padding:0 32px;}
+  .eyebrow{
+    font-family:var(--font-mono);
+    font-size:12.5px;
+    letter-spacing:0.06em;
+    color:var(--teal);
+    text-transform:uppercase;
+    display:flex; align-items:center; gap:8px;
+    margin-bottom:14px;
+  }
+  .eyebrow::before{content:''; width:6px; height:6px; background:var(--teal); border-radius:1px; flex:none;}
+  h1,h2,h3{font-family:var(--font-display); font-weight:600; letter-spacing:-0.01em;}
+  section{padding:104px 0;}
+  @media(max-width:720px){ section{padding:68px 0;} .wrap{padding:0 20px;} }
+
+  a:focus-visible, button:focus-visible, summary:focus-visible, input:focus-visible{
+    outline:2px solid var(--teal); outline-offset:3px; border-radius:4px;
+  }
+  .skip-link{
+    position:fixed; top:-100px; left:16px; z-index:1000;
+    background:var(--amber); color:#251705; padding:10px 16px; border-radius:8px;
+    font-family:var(--font-mono); font-size:13px; transition:top .2s;
+  }
+  .skip-link:focus{top:16px;}
+
+  /* ---------- SCROLL PROGRESS ---------- */
+  .scroll-progress{position:fixed; top:0; left:0; height:3px; background:linear-gradient(90deg,var(--teal),var(--amber)); width:0%; z-index:300; transition:width .1s linear;}
+
+  /* ---------- LOADER ---------- */
+  .loader{
+    position:fixed; inset:0; background:var(--bg); z-index:500;
+    display:flex; align-items:center; justify-content:center; flex-direction:column; gap:14px;
+    transition:opacity .5s ease, visibility .5s ease;
+  }
+  .loader.hide{opacity:0; visibility:hidden; pointer-events:none;}
+  .loader-mark{font-family:var(--font-mono); font-size:14px; color:var(--text-dim);}
+  .loader-mark b{color:var(--amber);}
+  .loader-bar{width:160px; height:2px; background:var(--line-soft); overflow:hidden; border-radius:2px;}
+  .loader-bar::after{content:''; display:block; width:40%; height:100%; background:var(--teal); animation:loaderMove 1s ease-in-out infinite;}
+  @keyframes loaderMove{0%{transform:translateX(-100%);} 100%{transform:translateX(350%);}}
+
+  /* ---------- NAV ---------- */
+  nav{
+    position:fixed; top:0; left:0; right:0; z-index:100;
+    background:rgba(14,20,32,0.86); backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line-soft);
+  }
+  .nav-inner{
+    max-width:1120px; margin:0 auto; padding:0 32px;
+    display:flex; align-items:center; justify-content:space-between;
+    height:64px;
+  }
+  .nav-logo{font-family:var(--font-mono); font-weight:500; font-size:15px; color:var(--text);}
+  .nav-logo span{color:var(--amber);}
+  .nav-links{display:flex; gap:24px;}
+  .nav-links a{font-size:14px; color:var(--text-dim); transition:color .15s;}
+  .nav-links a:hover{color:var(--amber);}
+  .nav-right{display:flex; align-items:center; gap:10px;}
+  .nav-search{
+    display:flex; align-items:center; gap:8px; font-family:var(--font-mono); font-size:12px;
+    color:var(--text-mute); border:1px solid var(--line); border-radius:6px; padding:7px 10px;
+    background:none; cursor:pointer; transition:border-color .15s, color .15s;
+  }
+  .nav-search:hover{border-color:var(--teal); color:var(--teal);}
+  .nav-search kbd{font-family:var(--font-mono); font-size:10.5px; padding:1px 5px; border:1px solid var(--line); border-radius:4px; color:var(--text-mute);}
+  .nav-cta{
+    font-family:var(--font-mono); font-size:13px; padding:8px 16px;
+    border:1px solid var(--line); border-radius:6px; color:var(--text);
+    transition:border-color .15s, color .15s;
+  }
+  .nav-cta:hover{border-color:var(--amber); color:var(--amber);}
+  .nav-toggle{display:none; background:none; border:none; color:var(--text); font-size:22px; cursor:pointer;}
+  @media(max-width:860px){
+    .nav-links, .nav-cta{display:none;}
+    .nav-toggle{display:block;}
+    .nav-links.open{
+      display:flex; flex-direction:column; position:absolute; top:64px; left:0; right:0;
+      background:var(--bg-alt); padding:20px 24px; gap:16px; border-bottom:1px solid var(--line-soft);
+    }
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    padding:160px 0 76px;
+    position:relative;
+    background:
+      radial-gradient(560px 320px at 82% -10%, rgba(242,169,59,0.10), transparent 70%),
+      radial-gradient(500px 300px at -10% 20%, rgba(79,209,197,0.07), transparent 70%);
+  }
+  .hero-grid{display:grid; grid-template-columns:1.15fr 0.85fr; gap:56px; align-items:center;}
+  @media(max-width:900px){ .hero-grid{grid-template-columns:1fr;} }
+
+  .profile-row{display:flex; align-items:center; gap:14px; margin-bottom:24px; flex-wrap:wrap;}
+  .avatar{
+    width:52px; height:52px; border-radius:50%; flex:none;
+    background:linear-gradient(145deg,var(--surface-2),var(--surface));
+    border:1px solid var(--line); display:flex; align-items:center; justify-content:center;
+    font-family:var(--font-display); font-weight:700; font-size:16px; color:var(--amber);
+    position:relative;
+  }
+  .avatar::after{content:''; position:absolute; bottom:1px; right:1px; width:11px; height:11px; border-radius:50%; background:var(--success); border:2px solid var(--bg);}
+  .profile-meta{display:flex; flex-direction:column; gap:5px;}
+  .badge-row{display:flex; gap:8px; flex-wrap:wrap;}
+  .badge{
+    font-family:var(--font-mono); font-size:11px; padding:3px 9px; border-radius:20px;
+    display:inline-flex; align-items:center; gap:5px; letter-spacing:.02em;
+  }
+  .badge-avail{background:var(--success-dim); color:var(--success);}
+  .badge-avail::before{content:''; width:6px; height:6px; border-radius:50%; background:var(--success);}
+  .badge-loc{background:var(--surface-2); color:var(--text-dim); border:1px solid var(--line-soft);}
+  .badge-edu{background:var(--surface-2); color:var(--text-dim); border:1px solid var(--line-soft);}
+
+  .role-line{
+    font-family:var(--font-mono); font-size:14px; color:var(--teal); min-height:20px; margin-bottom:8px;
+  }
+  .role-line .cursor{display:inline-block; width:8px; height:15px; background:var(--teal); vertical-align:middle; margin-left:2px; animation:blink 1s step-end infinite;}
+  @keyframes blink{50%{opacity:0;}}
+  .hero h1{font-size:clamp(34px,5vw,52px); line-height:1.08; margin-bottom:18px;}
+  .hero h1 .hl{color:var(--amber);}
+  .hero p.lede{font-size:17px; color:var(--text-dim); max-width:48ch; margin-bottom:30px;}
+  .hero-ctas{display:flex; gap:14px; flex-wrap:wrap;}
+  .btn{
+    font-family:var(--font-mono); font-size:13.5px; padding:12px 22px; border-radius:7px;
+    display:inline-flex; align-items:center; gap:8px; transition:transform .15s, background .15s, border-color .15s;
+    cursor:pointer; border:none; will-change:transform;
+  }
+  .btn-primary{background:var(--amber); color:#251705; font-weight:500;}
+  .btn-primary:hover{background:#f6b856;}
+  .btn-secondary{border:1px solid var(--line); color:var(--text); background:none;}
+  .btn-secondary:hover{border-color:var(--teal); color:var(--teal); transform:translateY(-2px);}
+
+  /* signature: terminal/metric console */
+  .console-wrap{position:relative;}
+  .float-chip{
+    position:absolute; background:var(--surface); border:1px solid var(--line); border-radius:9px;
+    padding:9px 12px; font-family:var(--font-mono); font-size:11px; color:var(--text-dim);
+    box-shadow:0 12px 28px -12px rgba(0,0,0,.5); animation:floaty 5s ease-in-out infinite; z-index:2;
+  }
+  .float-chip b{color:var(--amber); display:block; font-family:var(--font-display); font-size:15px;}
+  .chip-a{top:-18px; left:-14px; animation-delay:.2s;}
+  .chip-b{bottom:-16px; right:8px; animation-delay:1.4s;}
+  @keyframes floaty{0%,100%{transform:translateY(0);} 50%{transform:translateY(-8px);}}
+  @media(max-width:900px){ .float-chip{display:none;} }
+
+  .console{
+    background:var(--surface); border:1px solid var(--line); border-radius:12px; overflow:hidden;
+  }
+  .console-bar{
+    display:flex; align-items:center; gap:6px; padding:10px 14px; border-bottom:1px solid var(--line-soft);
+    background:var(--surface-2);
+  }
+  .dot{width:9px; height:9px; border-radius:50%;}
+  .dot.r{background:var(--error);} .dot.y{background:var(--warning);} .dot.g{background:var(--success);}
+  .console-title{font-family:var(--font-mono); font-size:11.5px; color:var(--text-mute); margin-left:6px;}
+  .console-body{padding:18px 16px; font-family:var(--font-mono); font-size:12.5px; color:var(--text-dim);}
+  .console-line{margin-bottom:6px; white-space:pre;}
+  .console-line .k{color:var(--teal);}
+  .console-line .v{color:var(--text);}
+  .metric-row{display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-top:14px;}
+  .metric{background:var(--bg-alt); border:1px solid var(--line-soft); border-radius:8px; padding:12px 10px; text-align:center;}
+  .metric .num{font-family:var(--font-display); font-size:22px; color:var(--amber); font-weight:600;}
+  .metric .lbl{font-family:var(--font-mono); font-size:10px; color:var(--text-mute); text-transform:uppercase; letter-spacing:.04em; margin-top:2px;}
+  .spark{width:100%; height:64px; margin-top:14px; display:block;}
+
+  /* ---------- ABOUT ---------- */
+  .about-grid{display:grid; grid-template-columns:0.9fr 1.1fr; gap:56px;}
+  @media(max-width:820px){ .about-grid{grid-template-columns:1fr;} }
+  .about-grid p{color:var(--text-dim); margin-bottom:16px; max-width:56ch;}
+  .fact-list{display:flex; flex-direction:column; gap:14px;}
+  .fact-list li{display:flex; justify-content:space-between; border-bottom:1px dashed var(--line-soft); padding-bottom:12px; font-size:14px; gap:16px;}
+  .fact-list .k{color:var(--text-mute); font-family:var(--font-mono); font-size:12.5px; text-transform:uppercase; letter-spacing:.04em; flex:none;}
+  .fact-list .v{color:var(--text); text-align:right;}
+
+  /* ---------- STAT STRIP ---------- */
+  .stat-strip{display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-top:48px;}
+  @media(max-width:720px){ .stat-strip{grid-template-columns:repeat(2,1fr);} }
+  .stat-card{background:var(--surface); border:1px solid var(--line-soft); border-radius:var(--radius); padding:20px; text-align:center;}
+  .stat-card .num{font-family:var(--font-display); font-size:28px; color:var(--amber); font-weight:700;}
+  .stat-card .lbl{font-family:var(--font-mono); font-size:11px; color:var(--text-mute); text-transform:uppercase; letter-spacing:.03em; margin-top:6px;}
+
+  /* ---------- SKILLS ---------- */
+  .skills-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:20px;}
+  @media(max-width:820px){ .skills-grid{grid-template-columns:1fr;} }
+  .skill-card{background:var(--surface); border:1px solid var(--line-soft); border-radius:var(--radius); padding:24px;}
+  .skill-card .cell-tag{font-family:var(--font-mono); font-size:11px; color:var(--text-mute); margin-bottom:10px;}
+  .skill-card h3{font-size:16px; margin-bottom:18px; color:var(--text); display:flex; align-items:center; gap:8px;}
+  .skill-item{margin-bottom:16px;}
+  .skill-item:last-child{margin-bottom:0;}
+  .skill-item-head{display:flex; justify-content:space-between; font-size:13.5px; margin-bottom:7px;}
+  .skill-item-head .name{color:var(--text);}
+  .skill-item-head .level{font-family:var(--font-mono); font-size:11px; color:var(--text-mute);}
+  .skill-bar{height:5px; border-radius:4px; background:var(--bg-alt); border:1px solid var(--line-soft); overflow:hidden;}
+  .skill-fill{height:100%; width:0; border-radius:4px; background:linear-gradient(90deg,var(--teal),var(--amber)); transition:width 1.1s var(--ease);}
+
+  /* ---------- STACK MARQUEE ---------- */
+  .stack-marquee{margin-top:56px; overflow:hidden; -webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent); mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);}
+  .stack-track{display:flex; gap:12px; width:max-content; animation:marquee 26s linear infinite;}
+  .stack-marquee:hover .stack-track{animation-play-state:paused;}
+  @keyframes marquee{from{transform:translateX(0);} to{transform:translateX(-50%);}}
+  .stack-chip{
+    font-family:var(--font-mono); font-size:12.5px; padding:8px 16px; border-radius:20px;
+    background:var(--surface); border:1px solid var(--line-soft); color:var(--text-dim); white-space:nowrap;
+  }
+  @media (prefers-reduced-motion: reduce){ .stack-track{animation:none;} }
+
+  /* ---------- SECTION HEAD / FILTERS ---------- */
+  .section-head{display:flex; align-items:flex-end; justify-content:space-between; margin-bottom:36px; flex-wrap:wrap; gap:12px;}
+  .section-head h2{font-size:clamp(24px,3vw,30px);}
+  .section-head p{color:var(--text-mute); font-size:14px; max-width:44ch;}
+  .filter-bar{display:flex; gap:8px; flex-wrap:wrap; margin-bottom:28px;}
+  .filter-btn{
+    font-family:var(--font-mono); font-size:12px; padding:7px 14px; border-radius:20px;
+    border:1px solid var(--line-soft); color:var(--text-dim); background:none; cursor:pointer;
+    transition:border-color .15s, color .15s, background .15s;
+  }
+  .filter-btn:hover{color:var(--text);}
+  .filter-btn.active{background:var(--teal-dim); border-color:var(--teal); color:var(--teal);}
+
+  /* ---------- PROJECTS ---------- */
+  .projects-list{display:flex; flex-direction:column; gap:18px;}
+  .project-card{
+    background:var(--surface); border:1px solid var(--line-soft); border-radius:12px;
+    padding:28px; display:grid; grid-template-columns:1fr auto; gap:24px; align-items:start;
+    transition:border-color .2s, opacity .3s, transform .3s;
+  }
+  .project-card:hover{border-color:var(--line);}
+  .project-card.is-hidden{display:none;}
+  @media(max-width:720px){ .project-card{grid-template-columns:1fr;} }
+  .project-top{display:flex; align-items:center; gap:10px; margin-bottom:10px; flex-wrap:wrap;}
+  .project-num{font-family:var(--font-mono); font-size:12px; color:var(--text-mute);}
+  .project-status{font-family:var(--font-mono); font-size:10.5px; padding:3px 9px; border-radius:20px; text-transform:uppercase; letter-spacing:.03em;}
+  .status-live{background:var(--success-dim); color:var(--success);}
+  .status-progress{background:var(--warning-dim); color:var(--warning);}
+  .project-card h3{font-size:19px; margin-bottom:10px;}
+  .project-block{margin-bottom:14px;}
+  .project-block .lbl{font-family:var(--font-mono); font-size:10.5px; color:var(--text-mute); text-transform:uppercase; letter-spacing:.04em; margin-bottom:4px;}
+  .project-block p{color:var(--text-dim); font-size:14.5px; max-width:62ch;}
+  .chip-row{display:flex; flex-wrap:wrap; gap:7px; margin-bottom:16px;}
+  .stack-chip-sm{font-family:var(--font-mono); font-size:11.5px; padding:4px 10px; border-radius:5px; background:var(--bg-alt); border:1px solid var(--line-soft); color:var(--text-dim);}
+  .project-impact{
+    font-size:13.5px; color:var(--teal); background:var(--teal-dim); border-radius:8px; padding:10px 14px;
+    display:flex; gap:8px; align-items:flex-start; margin-bottom:6px;
+  }
+  .project-links{display:flex; gap:10px; align-self:start; flex-direction:row;}
+  @media(max-width:720px){ .project-links{flex-direction:row;} }
+  .icon-link{
+    width:38px; height:38px; border:1px solid var(--line-soft); border-radius:8px;
+    display:flex; align-items:center; justify-content:center; color:var(--text-dim); font-family:var(--font-mono); font-size:13px;
+    transition:border-color .15s, color .15s;
+  }
+  .icon-link:hover{border-color:var(--teal); color:var(--teal);}
+
+  /* ---------- RESUME / EXPERIENCE / EDUCATION ---------- */
+  .resume-wrap{display:grid; grid-template-columns:1fr 260px; gap:48px;}
+  @media(max-width:820px){ .resume-wrap{grid-template-columns:1fr;} }
+  .exp-cols{display:grid; grid-template-columns:1fr 1fr; gap:48px;}
+  @media(max-width:720px){ .exp-cols{grid-template-columns:1fr; gap:36px;} }
+  .exp-col h3.col-head{font-size:14px; font-family:var(--font-mono); text-transform:uppercase; letter-spacing:.04em; color:var(--text-mute); margin-bottom:24px; font-weight:500;}
+  .timeline{border-left:2px solid var(--line-soft); padding-left:26px; display:flex; flex-direction:column; gap:30px;}
+  .timeline li{position:relative;}
+  .timeline li::before{
+    content:''; position:absolute; left:-33px; top:4px; width:11px; height:11px; border-radius:50%;
+    background:var(--bg); border:2px solid var(--amber);
+  }
+  .timeline .tl-date{font-family:var(--font-mono); font-size:11.5px; color:var(--teal); margin-bottom:4px; display:block;}
+  .timeline h4{font-size:16px; margin-bottom:4px; font-family:var(--font-display); font-weight:600;}
+  .timeline p{color:var(--text-dim); font-size:14px;}
+  .resume-card{
+    background:var(--surface); border:1px solid var(--line-soft); border-radius:var(--radius);
+    padding:24px; height:fit-content; position:sticky; top:96px;
+  }
+  .resume-card h3{font-size:15px; margin-bottom:10px;}
+  .resume-card p{color:var(--text-mute); font-size:13px; margin-bottom:18px;}
+  .resume-card .meta-line{display:flex; justify-content:space-between; font-family:var(--font-mono); font-size:11.5px; color:var(--text-mute); padding:8px 0; border-bottom:1px dashed var(--line-soft);}
+  .resume-card .meta-line span:last-child{color:var(--text-dim);}
+
+  /* ---------- CERTIFICATES ---------- */
+  .cert-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:16px;}
+  @media(max-width:820px){ .cert-grid{grid-template-columns:repeat(2,1fr);} }
+  @media(max-width:520px){ .cert-grid{grid-template-columns:1fr;} }
+  .cert-card{border:1px solid var(--line-soft); background:var(--surface); border-radius:var(--radius); padding:20px; text-align:left; transition:border-color .15s;}
+  .cert-card:hover{border-color:var(--line);}
+  .cert-card .cert-icon{font-family:var(--font-mono); color:var(--amber); font-size:13px; margin-bottom:10px;}
+  .cert-card h3{font-size:14.5px; margin-bottom:6px; line-height:1.35;}
+  .cert-card .cert-issuer{color:var(--text-dim); font-size:12.5px; margin-bottom:12px;}
+  .cert-card .cert-meta{font-family:var(--font-mono); font-size:11px; color:var(--text-mute); display:flex; flex-direction:column; gap:4px; margin-bottom:12px;}
+  .cert-card .cert-meta span{color:var(--text-dim);}
+  .cert-card .cert-link{font-family:var(--font-mono); font-size:12px; color:var(--teal); border-top:1px dashed var(--line-soft); padding-top:12px; display:inline-block; word-break:break-all;}
+  .cert-card .cert-link:hover{color:var(--amber);}
+
+  /* ---------- NOW: LEARNING + GOALS ---------- */
+  .now-grid{display:grid; grid-template-columns:1fr 1fr; gap:24px;}
+  @media(max-width:820px){ .now-grid{grid-template-columns:1fr;} }
+  .now-card{background:var(--surface); border:1px solid var(--line-soft); border-radius:var(--radius-lg); padding:28px;}
+  .now-card h3{font-size:16px; margin-bottom:14px;}
+  .now-card p{color:var(--text-dim); font-size:14px; margin-bottom:16px;}
+  .learn-chips{display:flex; flex-wrap:wrap; gap:8px;}
+  .learn-chip{font-family:var(--font-mono); font-size:12px; padding:6px 12px; border-radius:20px; background:var(--bg-alt); border:1px solid var(--line-soft); color:var(--teal);}
+  .goal-list{display:flex; flex-direction:column; gap:12px;}
+  .goal-list li{display:flex; gap:10px; font-size:14px; color:var(--text-dim); align-items:flex-start;}
+  .goal-list li::before{content:'→'; color:var(--amber); font-family:var(--font-mono); flex:none;}
+
+  /* ---------- FAQ ---------- */
+  .faq-list{display:flex; flex-direction:column; gap:12px; max-width:760px;}
+  .faq-item{background:var(--surface); border:1px solid var(--line-soft); border-radius:var(--radius); overflow:hidden;}
+  .faq-item summary{
+    padding:18px 22px; cursor:pointer; font-size:15px; font-weight:500; list-style:none;
+    display:flex; justify-content:space-between; align-items:center; gap:16px; font-family:var(--font-display);
+  }
+  .faq-item summary::-webkit-details-marker{display:none;}
+  .faq-item summary::after{content:'+'; font-family:var(--font-mono); font-size:18px; color:var(--text-mute); transition:transform .2s;}
+  .faq-item[open] summary::after{transform:rotate(45deg); color:var(--amber);}
+  .faq-item p{padding:0 22px 20px; color:var(--text-dim); font-size:14px; max-width:64ch;}
+
+  /* ---------- CONTACT ---------- */
+  .contact-box{
+    background:var(--surface); border:1px solid var(--line-soft); border-radius:14px;
+    padding:52px 44px; text-align:center;
+  }
+  .contact-box h2{font-size:clamp(24px,4vw,34px); margin-bottom:14px;}
+  .contact-box p{color:var(--text-dim); max-width:48ch; margin:0 auto 20px;}
+  .contact-meta{display:flex; justify-content:center; gap:22px; flex-wrap:wrap; margin-bottom:28px;}
+  .contact-meta div{font-family:var(--font-mono); font-size:11.5px; color:var(--text-mute); text-align:center;}
+  .contact-meta b{display:block; color:var(--text); font-size:13.5px; font-family:var(--font-body); font-weight:600; margin-top:2px;}
+  .contact-links{display:flex; justify-content:center; gap:14px; flex-wrap:wrap;}
+
+  footer{border-top:1px solid var(--line-soft); padding:28px 0;}
+  .footer-inner{display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:14px;}
+  footer p{font-family:var(--font-mono); font-size:12px; color:var(--text-mute);}
+  .footer-links{display:flex; gap:16px; flex-wrap:wrap;}
+  .footer-links a{font-family:var(--font-mono); font-size:12px; color:var(--text-mute); transition:color .15s;}
+  .footer-links a:hover{color:var(--amber);}
+
+  /* ---------- BACK TO TOP ---------- */
+  .to-top{
+    position:fixed; bottom:24px; right:24px; width:44px; height:44px; border-radius:50%; z-index:90;
+    background:var(--surface); border:1px solid var(--line); color:var(--text-dim);
+    display:flex; align-items:center; justify-content:center; font-size:16px; cursor:pointer;
+    opacity:0; visibility:hidden; transform:translateY(10px); transition:opacity .25s, transform .25s, border-color .15s, color .15s;
+  }
+  .to-top.show{opacity:1; visibility:visible; transform:translateY(0);}
+  .to-top:hover{border-color:var(--teal); color:var(--teal);}
+
+  /* ---------- COMMAND PALETTE ---------- */
+  .cmd-overlay{
+    position:fixed; inset:0; background:rgba(8,11,18,0.7); backdrop-filter:blur(2px); z-index:400;
+    display:flex; align-items:flex-start; justify-content:center; padding-top:14vh;
+    opacity:0; visibility:hidden; transition:opacity .18s ease;
+  }
+  .cmd-overlay.open{opacity:1; visibility:visible;}
+  .cmd-modal{
+    width:min(560px, 92vw); background:var(--surface); border:1px solid var(--line); border-radius:12px;
+    overflow:hidden; box-shadow:0 30px 60px -20px rgba(0,0,0,.6);
+  }
+  .cmd-input-row{display:flex; align-items:center; gap:10px; padding:14px 18px; border-bottom:1px solid var(--line-soft);}
+  .cmd-input-row span{color:var(--text-mute); font-family:var(--font-mono);}
+  .cmd-input{flex:1; background:none; border:none; color:var(--text); font-family:var(--font-body); font-size:15px;}
+  .cmd-input:focus{outline:none;}
+  .cmd-list{max-height:340px; overflow-y:auto; padding:8px;}
+  .cmd-item{
+    display:flex; justify-content:space-between; align-items:center; padding:11px 14px; border-radius:8px;
+    font-size:14px; color:var(--text-dim); cursor:pointer;
+  }
+  .cmd-item:hover, .cmd-item.active{background:var(--surface-2); color:var(--text);}
+  .cmd-item span.tag{font-family:var(--font-mono); font-size:10.5px; color:var(--text-mute);}
+  .cmd-empty{padding:20px; text-align:center; color:var(--text-mute); font-size:13px;}
+
+  .reveal{opacity:0; transform:translateY(16px); transition:opacity .6s ease, transform .6s ease;}
+  .reveal.in{opacity:1; transform:translateY(0);}
+  @media (prefers-reduced-motion: reduce){
+    .reveal{opacity:1; transform:none; transition:none;}
+    html{scroll-behavior:auto;}
+    .float-chip{animation:none;}
+  }
+
+  /* ---------- PROJECT SIDE ACTIONS (details button) ---------- */
+  .project-side{display:flex; flex-direction:column; gap:12px; align-items:stretch;}
+  @media(max-width:720px){ .project-side{flex-direction:row; flex-wrap:wrap;} }
+  .btn-details{
+    font-family:var(--font-mono); font-size:12.5px; padding:9px 16px; border-radius:7px;
+    border:1px solid var(--line); color:var(--text); background:none; cursor:pointer;
+    display:inline-flex; align-items:center; justify-content:center; gap:6px; white-space:nowrap;
+    transition:border-color .15s, color .15s, transform .15s;
+  }
+  .btn-details:hover{border-color:var(--amber); color:var(--amber); transform:translateY(-2px);}
+  .btn-details svg{width:13px; height:13px; transition:transform .2s;}
+  .btn-details:hover svg{transform:translateX(3px);}
+
+  /* ---------- PROJECT DETAILS MODAL ---------- */
+  .pm-overlay{
+    position:fixed; inset:0; z-index:500; background:rgba(8,11,18,0.78); backdrop-filter:blur(3px);
+    display:flex; align-items:flex-start; justify-content:center; padding:5vh 20px;
+    opacity:0; visibility:hidden; transition:opacity .25s ease, visibility .25s ease;
+    overflow-y:auto;
+  }
+  .pm-overlay.open{opacity:1; visibility:visible;}
+  .pm-modal{
+    width:min(820px, 100%); background:var(--surface); border:1px solid var(--line); border-radius:var(--radius-lg);
+    box-shadow:0 40px 80px -20px rgba(0,0,0,.65); overflow:hidden;
+    transform:translateY(24px) scale(.97); opacity:0; transition:transform .3s var(--ease), opacity .3s var(--ease);
+    margin-bottom:5vh;
+  }
+  .pm-overlay.open .pm-modal{transform:translateY(0) scale(1); opacity:1;}
+  @media (prefers-reduced-motion: reduce){
+    .pm-overlay, .pm-modal{transition:none;}
+  }
+  .pm-head{
+    position:sticky; top:0; z-index:2; background:var(--surface-2); border-bottom:1px solid var(--line-soft);
+    padding:22px 26px; display:flex; align-items:flex-start; justify-content:space-between; gap:16px;
+  }
+  .pm-head-title{display:flex; flex-direction:column; gap:6px;}
+  .pm-head-title .pm-num{font-family:var(--font-mono); font-size:11.5px; color:var(--text-mute);}
+  .pm-head-title h3{font-size:21px;}
+  .pm-close{
+    flex:none; width:36px; height:36px; border-radius:50%; border:1px solid var(--line); background:none;
+    color:var(--text-dim); font-size:17px; cursor:pointer; display:flex; align-items:center; justify-content:center;
+    transition:border-color .15s, color .15s, transform .15s;
+  }
+  .pm-close:hover{border-color:var(--error); color:var(--error); transform:rotate(90deg);}
+  .pm-body{padding:26px;}
+  .pm-section{margin-bottom:30px;}
+  .pm-section:last-child{margin-bottom:0;}
+  .pm-section h4{
+    font-family:var(--font-mono); font-size:11.5px; text-transform:uppercase; letter-spacing:.05em;
+    color:var(--teal); margin-bottom:12px; display:flex; align-items:center; gap:8px;
+  }
+  .pm-section h4::before{content:''; width:6px; height:6px; background:var(--teal); border-radius:1px; flex:none;}
+  .pm-section p{color:var(--text-dim); font-size:14.5px; max-width:70ch;}
+  .pm-section p + p{margin-top:10px;}
+
+  .pm-badges{display:flex; flex-wrap:wrap; gap:8px;}
+  .pm-badge{
+    font-family:var(--font-mono); font-size:12px; padding:6px 13px; border-radius:20px;
+    background:var(--bg-alt); border:1px solid var(--line-soft); color:var(--amber);
+    transition:transform .15s, border-color .15s;
+  }
+  .pm-badge:hover{border-color:var(--amber); transform:translateY(-2px);}
+
+  .pm-workflow{display:flex; flex-direction:column; gap:0;}
+  .pm-wf-step{
+    display:flex; align-items:center; gap:14px; font-size:14px; color:var(--text); padding:10px 0;
+  }
+  .pm-wf-step .pm-wf-dot{
+    flex:none; width:26px; height:26px; border-radius:50%; background:var(--bg-alt); border:1px solid var(--teal);
+    color:var(--teal); font-family:var(--font-mono); font-size:11px; display:flex; align-items:center; justify-content:center;
+  }
+  .pm-wf-arrow{
+    margin-left:12px; color:var(--text-mute); font-family:var(--font-mono); font-size:13px; line-height:1;
+  }
+
+  .pm-features{display:grid; grid-template-columns:repeat(2,1fr); gap:10px;}
+  @media(max-width:560px){ .pm-features{grid-template-columns:1fr;} }
+  .pm-feature{
+    display:flex; align-items:center; gap:10px; font-size:13.5px; color:var(--text-dim);
+    background:var(--bg-alt); border:1px solid var(--line-soft); border-radius:8px; padding:10px 12px;
+  }
+  .pm-feature .tick{color:var(--success); flex:none; font-family:var(--font-mono);}
+
+  .pm-impl-grid{display:flex; flex-direction:column; gap:14px;}
+  .pm-impl-item{border-left:2px solid var(--line-soft); padding-left:14px;}
+  .pm-impl-item .k{font-family:var(--font-mono); font-size:11.5px; color:var(--text-mute); text-transform:uppercase; letter-spacing:.04em; margin-bottom:4px; display:block;}
+  .pm-impl-item p{font-size:14px; color:var(--text-dim);}
+
+  .pm-cs-grid{display:grid; grid-template-columns:1fr 1fr; gap:18px;}
+  @media(max-width:640px){ .pm-cs-grid{grid-template-columns:1fr;} }
+  .pm-cs-card{background:var(--bg-alt); border:1px solid var(--line-soft); border-radius:var(--radius); padding:16px 18px;}
+  .pm-cs-card .k{font-family:var(--font-mono); font-size:11px; color:var(--text-mute); text-transform:uppercase; letter-spacing:.04em; margin-bottom:8px;}
+  .pm-cs-card ul{display:flex; flex-direction:column; gap:8px;}
+  .pm-cs-card li{font-size:13.5px; color:var(--text-dim); position:relative; padding-left:16px;}
+  .pm-cs-card li::before{content:'—'; position:absolute; left:0; color:var(--text-mute);}
+
+  .pm-gallery{display:grid; grid-template-columns:repeat(auto-fill,minmax(180px,1fr)); gap:12px;}
+  .pm-gallery img{
+    width:100%; height:120px; object-fit:cover; border-radius:8px; border:1px solid var(--line-soft);
+    transition:transform .25s ease, border-color .25s ease; cursor:zoom-in;
+  }
+  .pm-gallery img:hover{transform:scale(1.03); border-color:var(--teal);}
+
+  .pm-gh-cta{
+    display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap;
+    background:var(--bg-alt); border:1px solid var(--line-soft); border-radius:var(--radius); padding:18px 20px;
+  }
+  .pm-gh-cta p{margin:0; font-size:13.5px; color:var(--text-dim);}
+  .btn-gh{
+    font-family:var(--font-mono); font-size:13px; padding:11px 20px; border-radius:7px; background:var(--amber);
+    color:#251705; font-weight:500; display:inline-flex; align-items:center; gap:8px; flex:none;
+    transition:background .15s, transform .15s;
+  }
+  .btn-gh:hover{background:#f6b856; transform:translateY(-2px);}
+  .btn-gh svg{width:16px; height:16px;}
+
+  .pm-readme{
+    border-top:1px dashed var(--line-soft); margin-top:18px; padding-top:18px;
+  }
+  .pm-readme .pm-readme-note{font-family:var(--font-mono); font-size:11.5px; color:var(--text-mute);}
+  .pm-readme h5{font-size:14px; color:var(--text); margin:14px 0 6px;}
+  .pm-readme ul{padding-left:18px; list-style:disc; margin-bottom:10px;}
+  .pm-readme li{font-size:13.5px; color:var(--text-dim); margin-bottom:4px;}
+  .pm-readme p{font-size:13.5px; color:var(--text-dim); margin-bottom:10px;}
+  .pm-readme pre{
+    background:var(--bg); border:1px solid var(--line-soft); border-radius:8px; padding:12px 14px;
+    overflow-x:auto; font-family:var(--font-mono); font-size:12.5px; color:var(--text-dim); margin-bottom:10px;
+  }
+  .pm-readme code{font-family:var(--font-mono); font-size:12.5px; color:var(--teal);}
+
+  body.pm-lock{overflow:hidden;}
+</style>
+</head>
+<body>
+
+<a href="#top" class="skip-link">Skip to content</a>
+<div class="scroll-progress" id="scrollProgress"></div>
+<div class="loader" id="loader">
+  <div class="loader-mark">booting <b>portfolio.exe</b></div>
+  <div class="loader-bar"></div>
+</div>
+
+<nav>
+  <div class="nav-inner">
+    <a href="#top" class="nav-logo">lakshay<span>.</span>ds</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#certs">Certificates</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="nav-search" id="cmdOpen" aria-label="Open search / command palette">
+        Search <kbd>Ctrl K</kbd>
+      </button>
+      <a href="#contact" class="nav-cta">Get in touch</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">&#9776;</button>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="profile-row reveal">
+        <div class="avatar" aria-hidden="true">LP</div>
+        <div class="profile-meta">
+          <div class="badge-row">
+            <span class="badge badge-avail">Open to work</span>
+            <span class="badge badge-loc">India · GMT+5:30</span>
+            <span class="badge badge-edu">B.Tech CSE, Class of 2027</span>
+          </div>
+        </div>
+      </div>
+      <div class="role-line" id="roleLine">&nbsp;</div>
+      <h1>Lakshay Parashar —<br>turning raw data into <span class="hl">decisions.</span></h1>
+      <p class="lede">B.Tech CSE student building a production-grade data science portfolio: clean pipelines, tested models, and dashboards people actually use. Currently seeking Data Science &amp; Analytics internships.</p>
+      <div class="hero-ctas">
+        <a href="#projects" class="btn btn-primary magnetic">View projects</a>
+        <a href="#resume" class="btn btn-secondary">Download resume</a>
+        <a href="#contact" class="btn btn-secondary">Contact</a>
+      </div>
+    </div>
+    <div class="console-wrap">
+      <div class="float-chip chip-a">Certifications<b>6</b></div>
+      <div class="float-chip chip-b">Focus<b>DS · ML · BI</b></div>
+      <div class="console reveal">
+        <div class="console-bar">
+          <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+          <span class="console-title">status.py</span>
+        </div>
+        <div class="console-body">
+          <div class="console-line"><span class="k">candidate</span> = <span class="v">"Lakshay Parashar"</span></div>
+          <div class="console-line"><span class="k">graduating</span> = <span class="v">2027</span></div>
+          <div class="console-line"><span class="k">focus</span> = <span class="v">["ML", "Analytics", "BI"]</span></div>
+          <div class="console-line"><span class="k">status</span> = <span class="v">"open to work"</span></div>
+          <svg class="spark" viewBox="0 0 300 64" preserveAspectRatio="none" id="sparkSvg" aria-hidden="true">
+            <polyline id="sparkLine" fill="none" stroke="#4FD1C5" stroke-width="2" points=""/>
+          </svg>
+          <div class="metric-row">
+            <div class="metric"><div class="num" data-target="3">0</div><div class="lbl">Projects</div></div>
+            <div class="metric"><div class="num" data-target="6">0</div><div class="lbl">Certificates</div></div>
+            <div class="metric"><div class="num" data-target="8">0</div><div class="lbl">Core tools</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section id="about">
+  <div class="wrap about-grid">
+    <div class="reveal">
+      <div class="eyebrow">About</div>
+      <h2 style="font-size:28px; margin-bottom:16px;">Data science, from first principles.</h2>
+      <p>I'm a Computer Science undergraduate focused on data science, machine learning, and analytics. My work centers on asking a clear business question first, then choosing the simplest tool that answers it well — whether that's a pivot table, a regression, or a full ML pipeline.</p>
+      <p>Right now I'm building out a portfolio of end-to-end projects across analytics, BI, and applied ML, with an eye toward roles at data-driven product companies.</p>
+    </div>
+    <ul class="fact-list reveal">
+      <li><span class="k">Education</span><span class="v">B.Tech, Computer Science Engineering</span></li>
+      <li><span class="k">Graduation</span><span class="v">Expected 2027</span></li>
+      <li><span class="k">Focus areas</span><span class="v">Data Science · ML · Analytics · BI</span></li>
+      <li><span class="k">Core languages</span><span class="v">Python, SQL</span></li>
+      <li><span class="k">Currently building</span><span class="v">End-to-end ML &amp; BI projects</span></li>
+      <li><span class="k">Target roles</span><span class="v">Data Science / Analytics Internships</span></li>
+    </ul>
+  </div>
+  <div class="wrap">
+    <div class="stat-strip">
+      <div class="stat-card reveal"><div class="num">5</div><div class="lbl">Projects shipped</div></div>
+      <div class="stat-card reveal"><div class="num">6</div><div class="lbl">Certifications</div></div>
+      <div class="stat-card reveal"><div class="num">4</div><div class="lbl">Focus domains</div></div>
+      <div class="stat-card reveal"><div class="num">2027</div><div class="lbl">Graduation year</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="skills" style="background:var(--bg-alt); border-top:1px solid var(--line-soft); border-bottom:1px solid var(--line-soft);">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div>
+        <div class="eyebrow">Skills</div>
+        <h2>Tools I reach for.</h2>
+      </div>
+      <p>Grouped by how they're actually used, with an honest read on proficiency — not a wall of logos.</p>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-card reveal">
+        <div class="cell-tag">01 · languages</div>
+        <h3>Programming</h3>
+        <div class="skill-item">
+          <div class="skill-item-head"><span class="name">Python</span><span class="level">Proficient</span></div>
+          <div class="skill-bar"><div class="skill-fill" data-level="85"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-item-head"><span class="name">SQL</span><span class="level">Proficient</span></div>
+          <div class="skill-bar"><div class="skill-fill" data-level="80"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-item-head"><span class="name">Java</span><span class="level">Foundational</span></div>
+          <div class="skill-bar"><div class="skill-fill" data-level="45"></div></div>
+        </div>
+      </div>
+      <div class="skill-card reveal">
+        <div class="cell-tag">02 · modeling</div>
+        <h3>Data science &amp; ML</h3>
+        <div class="skill-item">
+          <div class="skill-item-head"><span class="name">Pandas / NumPy</span><span class="level">Proficient</span></div>
+          <div class="skill-bar"><div class="skill-fill" data-level="82"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-item-head"><span class="name">Scikit-learn</span><span class="level">Working</span></div>
+          <div class="skill-bar"><div class="skill-fill" data-level="65"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-item-head"><span class="name">Statistics &amp; EDA</span><span class="level">Proficient</span></div>
+          <div class="skill-bar"><div class="skill-fill" data-level="75"></div></div>
+        </div>
+      </div>
+      <div class="skill-card reveal">
+        <div class="cell-tag">03 · reporting</div>
+        <h3>Business intelligence</h3>
+        <div class="skill-item">
+          <div class="skill-item-head"><span class="name">Power BI</span><span class="level">Proficient</span></div>
+          <div class="skill-bar"><div class="skill-fill" data-level="78"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-item-head"><span class="name">Excel + VBA</span><span class="level">Proficient</span></div>
+          <div class="skill-bar"><div class="skill-fill" data-level="80"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-item-head"><span class="name">Dashboard design</span><span class="level">Working</span></div>
+          <div class="skill-bar"><div class="skill-fill" data-level="60"></div></div>
+        </div>
+      </div>
+      <div class="skill-card reveal">
+        <div class="cell-tag">04 · workflow</div>
+        <h3>Tools</h3>
+        <div class="skill-item">
+          <div class="skill-item-head"><span class="name">Git / GitHub</span><span class="level">Working</span></div>
+          <div class="skill-bar"><div class="skill-fill" data-level="68"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-item-head"><span class="name">Jupyter / VS Code</span><span class="level">Proficient</span></div>
+          <div class="skill-bar"><div class="skill-fill" data-level="85"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="stack-marquee reveal" role="presentation" aria-hidden="true">
+      <div class="stack-track" id="stackTrack">
+        <span class="stack-chip">Python</span><span class="stack-chip">SQL</span><span class="stack-chip">Pandas</span>
+        <span class="stack-chip">NumPy</span><span class="stack-chip">Scikit-learn</span><span class="stack-chip">Power BI</span>
+        <span class="stack-chip">Excel</span><span class="stack-chip">VBA</span><span class="stack-chip">Matplotlib</span>
+        <span class="stack-chip">Seaborn</span><span class="stack-chip">Git</span><span class="stack-chip">Jupyter</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div>
+        <div class="eyebrow">Projects</div>
+        <h2>Selected work.</h2>
+      </div>
+      <p>Each project ties a business question to a concrete analytical output.</p>
+    </div>
+
+    <div class="filter-bar reveal" id="filterBar">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="bi">Power BI</button>
+      <button class="filter-btn" data-filter="excel">Excel</button>
+      <button class="filter-btn" data-filter="python">Python</button>
+      <button class="filter-btn" data-filter="ml">ML</button>
+    </div>
+
+    <div class="projects-list" id="projectsList">
+
+      <div class="project-card reveal" data-cat="bi excel" data-title="E-commerce Sales Dashboard">
+        <div>
+          <div class="project-top">
+            <span class="project-num">Project 01</span>
+            <span class="project-status status-live">Live</span>
+          </div>
+          <h3>E-commerce Sales Dashboard</h3>
+          <div class="project-block">
+            <div class="lbl">Problem</div>
+            <p>An ops team had to trawl raw order exports every week just to find which categories were underperforming.</p>
+          </div>
+          <div class="project-block">
+            <div class="lbl">Solution</div>
+            <p>An interactive Power BI dashboard analyzing sales, returns, and customer segments — built on a cleaned e-commerce dataset with drill-down by category, region, and time period.</p>
+          </div>
+          <div class="chip-row">
+            <span class="stack-chip-sm">Power BI</span><span class="stack-chip-sm">Excel</span><span class="stack-chip-sm">DAX</span>
+          </div>
+          <div class="project-impact">→ Cut weekly reporting time from a manual multi-hour task to a self-serve dashboard view.</div>
+        </div>
+        <div class="project-side">
+          <div class="project-links">
+            <a href="#" class="icon-link" title="Live demo" aria-label="Live demo for E-commerce Sales Dashboard">↗</a>
+          </div>
+          <button class="btn-details" data-project="ecommerce-sales-dashboard" aria-haspopup="dialog">View Details <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+        </div>
+      </div>
+
+      <div class="project-card reveal" data-cat="excel" data-title="Excel Automation Dashboard">
+        <div>
+          <div class="project-top">
+            <span class="project-num">Project 02</span>
+            <span class="project-status status-live">Live</span>
+          </div>
+          <h3>Excel Automation Dashboard</h3>
+          <div class="project-block">
+            <div class="lbl">Problem</div>
+            <p>A recurring weekly report meant manually refreshing pivot tables, reformatting summaries, and rebuilding charts by hand.</p>
+          </div>
+          <div class="project-block">
+            <div class="lbl">Solution</div>
+            <p>A VBA-driven Excel workbook that automates the entire reporting cycle — refresh, format, and chart generation triggered from a single button.</p>
+          </div>
+          <div class="chip-row">
+            <span class="stack-chip-sm">Excel</span><span class="stack-chip-sm">VBA</span><span class="stack-chip-sm">Pivot Tables</span>
+          </div>
+          <div class="project-impact">→ Turned a manual weekly process into a single-click workbook refresh.</div>
+        </div>
+        <div class="project-side">
+          <div class="project-links">
+            <a href="#" class="icon-link" title="Live demo" aria-label="Live demo for Excel Automation Dashboard">↗</a>
+          </div>
+          <button class="btn-details" data-project="excel-automation-dashboard" aria-haspopup="dialog">View Details <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+        </div>
+      </div>
+
+      <div class="project-card reveal" data-cat="ml" data-title="Stock Market Analysis">
+        <div>
+          <div class="project-top">
+            <span class="project-num">Project 03</span>
+            <span class="project-status status-progress">In progress</span>
+          </div>
+          <h3>Stock Market Analysis</h3>
+          <div class="project-block">
+            <div class="lbl">Problem</div>
+            <p>Understanding whether simple statistical signals in historical price data hold any real explanatory value across tickers.</p>
+          </div>
+          <div class="project-block">
+            <div class="lbl">Solution</div>
+            <p>Exploratory and statistical analysis of historical stock price data using Python — covering trend decomposition, volatility, and correlation across a basket of tickers.</p>
+          </div>
+          <div class="chip-row">
+            <span class="stack-chip-sm">Python</span><span class="stack-chip-sm">Pandas</span><span class="stack-chip-sm">Matplotlib</span>
+          </div>
+          <div class="project-impact">→ In progress: extending EDA into a baseline volatility-forecasting model.</div>
+        </div>
+        <div class="project-side">
+          <div class="project-links">
+            <a href="#" class="icon-link" title="Live demo" aria-label="Live demo for Stock Market Analysis">↗</a>
+          </div>
+          <button class="btn-details" data-project="stock-market-analysis" aria-haspopup="dialog">View Details <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+        </div>
+      </div>
+
+      <div class="project-card reveal" data-cat="python" data-title="Student Management System">
+        <div>
+          <div class="project-top">
+            <span class="project-num">Project 04</span>
+            <span class="project-status status-live">Live</span>
+          </div>
+          <h3>Student Management System</h3>
+          <div class="project-block">
+            <div class="lbl">Problem</div>
+            <p>Tracking a small class list by hand leaves no quick way to search, update, or count students without re-scanning everything manually.</p>
+          </div>
+          <div class="project-block">
+            <div class="lbl">Solution</div>
+            <p>A menu-driven Python console application that stores students in a list and supports add, display, search, update, delete, and live-count operations from a single loop.</p>
+          </div>
+          <div class="chip-row">
+            <span class="stack-chip-sm">Python</span><span class="stack-chip-sm">Lists</span><span class="stack-chip-sm">CLI</span>
+          </div>
+          <div class="project-impact">→ A clean, dependency-free CRUD loop built entirely on core Python list operations.</div>
+        </div>
+        <div class="project-side">
+          <div class="project-links">
+            <a href="https://github.com/lakshay567" target="_blank" rel="noopener noreferrer" class="icon-link" title="GitHub repository" aria-label="GitHub repository for Student Management System"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12c0 4.42 2.87 8.17 6.84 9.5.5.09.66-.22.66-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.89 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.33-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02.8-.22 1.65-.33 2.5-.33.85 0 1.7.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85V21c0 .27.16.58.67.48A10 10 0 0022 12c0-5.52-4.48-10-10-10z"/></svg></a>
+          </div>
+          <button class="btn-details" data-project="student-management-system" aria-haspopup="dialog">View Details <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+        </div>
+      </div>
+
+      <div class="project-card reveal" data-cat="python" data-title="Dictionary-Based Inventory Management System">
+        <div>
+          <div class="project-top">
+            <span class="project-num">Project 05</span>
+            <span class="project-status status-live">Live</span>
+          </div>
+          <h3>Dictionary-Based Inventory Management System</h3>
+          <div class="project-block">
+            <div class="lbl">Problem</div>
+            <p>Small sellers have no quick way to see stock levels, revenue, or which products are running low without opening a spreadsheet.</p>
+          </div>
+          <div class="project-block">
+            <div class="lbl">Solution</div>
+            <p>A dictionary-based Python console app that models every product as a nested record, driving 19 menu options covering CRUD, sales, and reporting.</p>
+          </div>
+          <div class="chip-row">
+            <span class="stack-chip-sm">Python</span><span class="stack-chip-sm">Dictionaries</span><span class="stack-chip-sm">CLI</span>
+          </div>
+          <div class="project-impact">→ Turns raw inventory data into on-demand revenue and stock reports from a single menu loop.</div>
+        </div>
+        <div class="project-side">
+          <div class="project-links">
+            <a href="https://github.com/lakshay567" target="_blank" rel="noopener noreferrer" class="icon-link" title="GitHub repository" aria-label="GitHub repository for Dictionary-Based Inventory Management System"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12c0 4.42 2.87 8.17 6.84 9.5.5.09.66-.22.66-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.89 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.33-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02.8-.22 1.65-.33 2.5-.33.85 0 1.7.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85V21c0 .27.16.58.67.48A10 10 0 0022 12c0-5.52-4.48-10-10-10z"/></svg></a>
+          </div>
+          <button class="btn-details" data-project="dict-inventory-management" aria-haspopup="dialog">View Details <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="pm-overlay" id="pmOverlay" role="dialog" aria-modal="true" aria-labelledby="pmTitle">
+  <div class="pm-modal" id="pmModal">
+    <div class="pm-head">
+      <div class="pm-head-title">
+        <span class="pm-num" id="pmNum">Project</span>
+        <h3 id="pmTitle">Project title</h3>
+      </div>
+      <button class="pm-close" id="pmClose" aria-label="Close project details">&times;</button>
+    </div>
+    <div class="pm-body" id="pmBody"><!-- populated by JS --></div>
+  </div>
+</div>
+
+<section id="resume" style="background:var(--bg-alt); border-top:1px solid var(--line-soft); border-bottom:1px solid var(--line-soft);">
+  <div class="wrap resume-wrap">
+    <div>
+      <div class="eyebrow reveal">Resume</div>
+      <h2 class="reveal" style="margin-bottom:32px;">Path so far.</h2>
+      <ul class="timeline">
+        <li class="reveal">
+          <span class="tl-date">2023 — 2027</span>
+          <h4>B.Tech, Computer Science Engineering</h4>
+          <p>Coursework and self-directed projects focused on data structures, statistics, and applied machine learning.</p>
+        </li>
+        <li class="reveal">
+          <span class="tl-date">Ongoing</span>
+          <h4>Independent data science projects</h4>
+          <p>E-commerce dashboarding, Excel process automation, and time-series analysis on stock market data.</p>
+        </li>
+        <li class="reveal">
+          <span class="tl-date">Next</span>
+          <h4>Target: Data Science / Analytics internship</h4>
+          <p>Applying to product and analytics teams where I can ship end-to-end, from raw data to a shipped decision.</p>
+        </li>
+      </ul>
+    </div>
+    <div class="resume-card reveal">
+      <h3>Full resume</h3>
+      <p>One-page PDF with education, skills, and project details.</p>
+      <div class="meta-line"><span>Timezone</span><span>GMT+5:30</span></div>
+      <div class="meta-line"><span>Response time</span><span>&lt; 24 hours</span></div>
+      <div class="meta-line" style="border-bottom:none;"><span>Status</span><span>Open to work</span></div>
+      <a href="data:application/pdf;base64,JVBERi0xLjQKJZOMi54gUmVwb3J0TGFiIEdlbmVyYXRlZCBQREYgZG9jdW1lbnQgKG9wZW5zb3VyY2UpCjEgMCBvYmoKPDwKL0YxIDIgMCBSIC9GMiAzIDAgUiAvRjMgNCAwIFIgL0Y0IDUgMCBSIC9GNSA2IDAgUgo+PgplbmRvYmoKMiAwIG9iago8PAovQmFzZUZvbnQgL0hlbHZldGljYSAvRW5jb2RpbmcgL1dpbkFuc2lFbmNvZGluZyAvTmFtZSAvRjEgL1N1YnR5cGUgL1R5cGUxIC9UeXBlIC9Gb250Cj4+CmVuZG9iagozIDAgb2JqCjw8Ci9CYXNlRm9udCAvSGVsdmV0aWNhLUJvbGQgL0VuY29kaW5nIC9XaW5BbnNpRW5jb2RpbmcgL05hbWUgL0YyIC9TdWJ0eXBlIC9UeXBlMSAvVHlwZSAvRm9udAo+PgplbmRvYmoKNCAwIG9iago8PAovQmFzZUZvbnQgL0hlbHZldGljYS1Cb2xkT2JsaXF1ZSAvRW5jb2RpbmcgL1dpbkFuc2lFbmNvZGluZyAvTmFtZSAvRjMgL1N1YnR5cGUgL1R5cGUxIC9UeXBlIC9Gb250Cj4+CmVuZG9iago1IDAgb2JqCjw8Ci9CYXNlRm9udCAvSGVsdmV0aWNhLU9ibGlxdWUgL0VuY29kaW5nIC9XaW5BbnNpRW5jb2RpbmcgL05hbWUgL0Y0IC9TdWJ0eXBlIC9UeXBlMSAvVHlwZSAvRm9udAo+PgplbmRvYmoKNiAwIG9iago8PAovQmFzZUZvbnQgL1phcGZEaW5nYmF0cyAvTmFtZSAvRjUgL1N1YnR5cGUgL1R5cGUxIC9UeXBlIC9Gb250Cj4+CmVuZG9iago3IDAgb2JqCjw8Ci9Db250ZW50cyAxMSAwIFIgL01lZGlhQm94IFsgMCAwIDYxMiA3OTIgXSAvUGFyZW50IDEwIDAgUiAvUmVzb3VyY2VzIDw8Ci9Gb250IDEgMCBSIC9Qcm9jU2V0IFsgL1BERiAvVGV4dCAvSW1hZ2VCIC9JbWFnZUMgL0ltYWdlSSBdCj4+IC9Sb3RhdGUgMCAvVHJhbnMgPDwKCj4+IAogIC9UeXBlIC9QYWdlCj4+CmVuZG9iago4IDAgb2JqCjw8Ci9QYWdlTW9kZSAvVXNlTm9uZSAvUGFnZXMgMTAgMCBSIC9UeXBlIC9DYXRhbG9nCj4+CmVuZG9iago5IDAgb2JqCjw8Ci9BdXRob3IgKExha3NoYXkgUGFyYXNoYXIpIC9DcmVhdGlvbkRhdGUgKEQ6MjAyNjA3MTcwNzA0NTIrMDAnMDAnKSAvQ3JlYXRvciAoXCh1bnNwZWNpZmllZFwpKSAvS2V5d29yZHMgKCkgL01vZERhdGUgKEQ6MjAyNjA3MTcwNzA0NTIrMDAnMDAnKSAvUHJvZHVjZXIgKFJlcG9ydExhYiBQREYgTGlicmFyeSAtIFwob3BlbnNvdXJjZVwpKSAKICAvU3ViamVjdCAoXCh1bnNwZWNpZmllZFwpKSAvVGl0bGUgKExha3NoYXkgUGFyYXNoYXIgLSBSZXN1bWUpIC9UcmFwcGVkIC9GYWxzZQo+PgplbmRvYmoKMTAgMCBvYmoKPDwKL0NvdW50IDEgL0tpZHMgWyA3IDAgUiBdIC9UeXBlIC9QYWdlcwo+PgplbmRvYmoKMTEgMCBvYmoKPDwKL0ZpbHRlciBbIC9BU0NJSTg1RGVjb2RlIC9GbGF0ZURlY29kZSBdIC9MZW5ndGggMzQzMgo+PgpzdHJlYW0KR2IhI15mbGwrPiZxMExVZTVNQWkmS3JcLjVoW2s5TTNQLDFSakMrWmJnQiZzQlRcKjkxa0xFPEY2O05HRyUyXTclP2VoRGBdYiJZL0NoL2BXay1gUjVzInVhbEYvXHEzWkhHZktnQ0diSy1yRy4+KzVedGUvdUAjai4wJyhnJFdUJVxRMnBVKkJcbFxSVm9VSFxrL0BZRzFyNkpSVVAxWS0pNVlxQiU2QXBFPD1mPyktbl1HMW8wMy0vLCNLbmZwcUo0X0prVUxWbnFnWXBrTixGJGlbPV5DRHVsTzA4L0FtJ0pKIk4uTGFaXTkuai1uZkJ0VnFDWj8nWD10WzFXVUU3U3E0YTchZzRBSERpbWRoaiUrNllPamlCLkxcUGtyY1VMY0I8TjhwPDBEQVg1cStQdT0vTi1kLVpvTmVQZl5DIlAlW0VjbyJDOyonRGI1TjoqM1tjQEAuMWdyXEtHbGxBak1CImRKTmEhSjhLZ0dAVHI/LjlUOlAuZUBqYHNlVm03aVkkSm8kcWZlTy9GMz1EPzZEUV1XQERIOUQlRzRvIUcoQC1OYUAyci9UcW84Iy5mMVFhZFkzRDZRSEFeQ2lNNUFeTUxyTU9rJUg/O0teQDstNDM2QC45MGVFSk1sVHQwR3NYYzc7LyZUOnI5RzY4YmspTlMxK1VWTyU6RjdldHBxWUtqYFwodChFRC1KZVNMPjgoPFE4LiI4ZVlqRnVkPDFbckxAJTVuX2leJFs7KldNNmdgK19RUilGOWlQOF1bMmpSWm9IMEwnMWY3aGo2OVFEUHBoNGhCbCUnTWxUaDtzb2oqYUhwOjBNcyQrN19ScVVyOS1JcT4nTFxeK0BaY19EJyVuMW9WVSRcR28mTDY6YlohO2VWTm9QIUopaWA6IV9AX0hPdSw3dENsSi8vSlZSbFc4ODBjNzZlbTZTTVwnTicjMTtbby1SZjM6YyQxKVJVQyNCZFNzXXJAYGVHWSRAWy1AWkpvcjQzUXBjTj46SEBqVl47PjpRI0YpYmdCNmIkaWNRYnQrKnIycDNbLiRxLig1akdiJm4pbz1IJjcmLUM3QzdKbSc4SChObChqJ1xcOVFtKCp1IktqU1Ilc1NnT1RqQk1CWC8yN3BfbTteJlZLVE0rVThCXjljcEw9KDhTRkE2Tm9HIy4+cUhYRylwI0ZEblklQDY1NkhIR2dlPnVgQlxJby9GM01nR1ddailyalBBUSkoJy8vSDRGYWI8LzldWzlPWCFIK3M8MHJAa2g4XGNQT3FWUGNNQV9fY19eWTs1aWohI2hIPklQczk4ZTgwYFVOITxZPVtQMk1RZUs8YWs5QW1HTSorQT9YRG5xUiQndXNLUWZTMylUR0VQVUsiPSJaWitOJixXQihJa1ZBW1IvWnA8amFbaCcnWTdQTnInUGRIbVwpRW1UWldUPUFBWkxwWSRmODZgLTlVUTMybzUjcmtsZXRLbnFrKU4qK1pnQCJPMmEiRjRKJChhR1dhKWVqPiEoXDlyUE5fTmIwPVJvazY1a1oyNT0nVC5kQ04qayVOcmFAXjdmRnEiW14+cSFXLTlPVCsyImp0YD4hZjVeUUVBWToqRVlVbGFNKk41VjlHJCpgXGYvLio+WUQtMyciT2xFVUJMIy43MjcpMDJjcShEI0QwOCVwQmknWms3aCM+TyJMUV1OZS5IQ0c5aVVBRlJEV0RVSERAZVlpTFddUS9rQUJyVy4vUl8qX0dZRyRfPVdcbW5oKV1nSk51J10lW29UQTddQzRdTmpeb11sMEdmNUwvMWs5K1E+ZUFdQ1YrV2g8VFNYcmNaRT9KNU9RKDhqVi9PUzglN2EhWXVNdGBPZ2hdI28oOWNuZS1icThtNCpZN0wqcVcyUExBTl9gclRqV15RNGU7a1E9MVxvSjMiWHBOVElocGxFblI/ZWJhS01QWGg7LVg1KE9jRyY6VCxTTFdhOVNyVVAxY0hmdGU3bnBsYmNvK2VhOldWQyU3Py5CYlFIO2pNJy9pKD4wVVlZQTY4MldROzAoOFQ8PEwhXV9eRjEycFRNLURMPmlxKllyWldgPk5BWEpsP05pRj1UdSlSSVw3U2tgTUNdMGpWJHRZKFUzXihVOWNdSSlDP1NlXXIuIkw1ZWE/TklaJFoyR11ETD9UcVdFTHU/KXEpVGtxNiJhaixnQ2E+Sl1FXXFDVHA6JzshOG9RXCJCUjE5YjI4SFBdUFxaLis0M1ZxWylaaFdfM1k4YzZvW2wxQlgxPGpZYj03RV4xVydwYG87Lk9aZmFfQSU/JGk0QEw5UXEuLj9lNXBAME4wc3FLMElobyVgakpMVSNZT28rSyNDQ2wzcDdxVyhxK2ZITWVHJ3Q6YnJTMjNCdD9pS0xVP1AiVl5rSU8zNWstNURPPDlQW2kmUVA7bWtcYC5aLW4nJDxLRkNmKGhkUFVGZ3QpWHBsM2JBMT1KQWduT3U/U11tc2RbaDpUJk80Tktdal9lXWBoNmFYV0ckNGppMjQpLFZadFklKilQLDlpX1lNSFouYkdvIW4kOkw4WilvNDA4TjlTYC0rcm5mWydcPVZBTzQ0KGJjWCpVSGtmRFM9XWZxMDJMKDNwJlsxbENuQyxEOUonYjJjUjRrNVIwJyNmKzNGVlNdSjMnMDo1KDQ2I3Nwc1JfYFosbGtUOThbKEMkSiRLQDVdN043Xm9gJ0lQSFM9a0o2YSRaaCQ5KTAoc1hRXkBENWdkPEVdaSYrMCFHdWkvY0JuME5EcjIhTTlFTmw9Oy5GTjdqPjUoaHNFMmVEK2wnbEhPRTRNJUQlXCdGU1xpIT5TW29kP2RLOT5PUSk+OVcqWD01cTVXUj0lTD1jSUQ2bzxDRVtabjA0I0t1R1YlSj1cRCVIbjxcZzt1OHBcJk9LOzJBRm0qS2FzIjR0XF4pW3JTaydKOFpKblZaNjVkbWo+T0VYSG5CPSVdV1tzTmY4cWYsXGVVSDUyYyghJ29GaXNbJG9oMjFaaCZHNilkOTE5RT9jLDtXL21BPz5iYFBQXiMwZFJjVj9EWkJqOyE4RiFxUTlTbyRxLEgyPzdXWyVCXTdbMlgnakRiTm1dO2c+OkRBWUJjQDZGakxlIS5UISdHKjBXXllDcjwqSUpJLko2QztZYSYjXlxjS29ETjFpSy89JlU1YUVWP2pGMSxOIi46LEZHZl0hRSJDREgpP3I4ckZMYCNNZG1AP2RGLiJ0KU1AMXMhJUxtc0owRFJ1XDRSOWVocUZmdVUrQzQmaD5YWVY6X0xHJ21eIzByVU4nbDdKUHMlQ0xBWF5UJCZOJmAhK1tYdVlyLTBSNFJAV3JTLDonXUdfLzpeYzo2M1pxPEg2Wms9UjVeR1FuOGc2LS1NUTRLVmxTWGQzXitZLWtkRW1ca1JeRy8hVC5VckNPMUkwWzxHbD9hVi4pZjsnSWBMZUpuPFEsQEJmaDU5OypqTVdAJDwtPVkqcjZDby8hT0wlOXBqODAkYyFhYVYyU25WRiVdOGN1UjtsOClPTHUhLUJxTCFWPEhZRDZsOyNmLlpyciRGLmsuS1NaWSxRPmJKK0xaM240V1YvbU9MMzA5US5bZWhuLl47XCkoRT9NI0J1RUkrSkY9MCNqN1tDV2pVKElPJigha1V1QC9ZaXBCOVdPXzFIJTBjVEkzWSgtZFtmUScrQFhDSFg7TyNLcUVVNSJsbDxBUC1kOVo3WUk6QEEnXilcW1I7VSNXYjJlJXJlMy02KyFgMy01dV9NIXFMKFhyUD9EaCxBcCVYR0A9Yi5VQUs7X1k4KHMhYFBCOWAvKiFGc1oxMU00Il0jXSVMYmVjKypcYjo2bGVCQUNPPV5ySz5vQGJfaDFWJ1NgQTlgOXBiV2NNUj9nYkRYUicyLUlpak1wXkRYP0pnMm4wMFpxTmYpZldOPUJjO1FMIUhPKCMqTmhOJU02X21GTi1nOidIcSRCbF8iI1AoNCFeJUBfcTZOMDZeRz9oNiZeOEchUG4mNHE1WloyQVQtckU7WGszcWByIlY9Q0FaN1Q0WmlqZHIsWmxDUClqREhPRidWaGciWUo0OyQiU1RDTV9DXXNqNDdZSWE9IUxzMEBtR1liZVNaaF1MNTNhVGdLX3NKO0RGb09TUz5ydXFDUyhaWihuK0pdTWMtVVV1WisxZStDPTM7WDI5dG11PFBBZWloLWBedV4zQUA6Z0QsSClHT0hIX0s1L2c1SitKXEowOmNWWXBQbEQsSTE/XnFtRm0lRkI0QUJqNz4jT05gR1hNaG1Na2cnJmFjQUg6TVcsZE5XLUYiZGhSQSJRQFhQIyk0ck1EZ1AnUiRZLk5GMShvYXNWJWYsR0hkNDtzNVleIj82V25LK2ZGMD1CVTxzOGtwSExcLDsybkEyaDZOTXEnO2lnYSU7Sm1cSDJWaGolQl1iSHVHOG9UMjMuRCtqR0YtJC5aZGtxNG81LVd1UTZZUz9MJkJMNUF1amZMLz1lKFFgYG1fWUBVT2RwNFxoLVxcN0RFIkBXbCp0PiJpQygoNS5qMCckRnRNcWY4Lk9Wczl0OGUpcjI8VTNIVkBUU2RLZX4+ZW5kc3RyZWFtCmVuZG9iagp4cmVmCjAgMTIKMDAwMDAwMDAwMCA2NTUzNSBmIAowMDAwMDAwMDYxIDAwMDAwIG4gCjAwMDAwMDAxMzIgMDAwMDAgbiAKMDAwMDAwMDIzOSAwMDAwMCBuIAowMDAwMDAwMzUxIDAwMDAwIG4gCjAwMDAwMDA0NzAgMDAwMDAgbiAKMDAwMDAwMDU4NSAwMDAwMCBuIAowMDAwMDAwNjY4IDAwMDAwIG4gCjAwMDAwMDA4NjMgMDAwMDAgbiAKMDAwMDAwMDkzMiAwMDAwMCBuIAowMDAwMDAxMjI3IDAwMDAwIG4gCjAwMDAwMDEyODcgMDAwMDAgbiAKdHJhaWxlcgo8PAovSUQgCls8MzdkOGU2NWU3ZTYxYTQxNDhhZTdiYmM3YjM4MzY1NzI+PDM3ZDhlNjVlN2U2MWE0MTQ4YWU3YmJjN2IzODM2NTcyPl0KJSBSZXBvcnRMYWIgZ2VuZXJhdGVkIFBERiBkb2N1bWVudCAtLSBkaWdlc3QgKG9wZW5zb3VyY2UpCgovSW5mbyA5IDAgUgovUm9vdCA4IDAgUgovU2l6ZSAxMgo+PgpzdGFydHhyZWYKNDgxMQolJUVPRgo=" download="Lakshay_Parashar_Resume.pdf" class="btn btn-primary" style="width:100%; justify-content:center; margin-top:16px;">Download PDF</a>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div>
+        <div class="eyebrow">Experience</div>
+        <h2>Education &amp; hands-on work.</h2>
+      </div>
+      <p>No formal job titles yet — the experience lives in the projects and coursework themselves.</p>
+    </div>
+    <div class="exp-cols">
+      <div class="exp-col">
+        <h3 class="col-head">Education</h3>
+        <ul class="timeline">
+          <li class="reveal">
+            <span class="tl-date">2023 — 2027</span>
+            <h4>B.Tech, Computer Science Engineering</h4>
+            <p>Core coursework in data structures, algorithms, databases, and statistics, with electives in machine learning.</p>
+          </li>
+          <li class="reveal">
+            <span class="tl-date">Self-directed</span>
+            <h4>Applied data science coursework</h4>
+            <p>Structured learning across Python, SQL, and Java through completed, verified certifications (see Certificates).</p>
+          </li>
+        </ul>
+      </div>
+      <div class="exp-col">
+        <h3 class="col-head">Hands-on project work</h3>
+        <ul class="timeline">
+          <li class="reveal">
+            <span class="tl-date">2024</span>
+            <h4>BI &amp; reporting automation</h4>
+            <p>Built a Power BI sales dashboard and a VBA-automated Excel reporting workbook, both shipped as working deliverables.</p>
+          </li>
+          <li class="reveal">
+            <span class="tl-date">2024 — ongoing</span>
+            <h4>Applied Python analysis</h4>
+            <p>Time-series EDA on stock market data; extending toward a lightweight forecasting model.</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="certs">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div>
+        <div class="eyebrow">Certificates</div>
+        <h2>Credentials &amp; achievements.</h2>
+      </div>
+      <p>Verified credentials from completed coursework.</p>
+    </div>
+    <div class="cert-grid">
+      <div class="cert-card reveal">
+        <div class="cert-icon">[✓]</div>
+        <h3>Python Programming in Hindi: Beginner to Advanced with Certification</h3>
+        <div class="cert-issuer">Guvi · Issued Jan 2024</div>
+        <div class="cert-meta">Credential ID <span>o51ai17uz242P0N15U</span></div>
+        <a href="https://www.guvi.in/verify-certificate?id=o51ai17uz242P0N15U" class="cert-link" target="_blank" rel="noopener">Verify credential ↗</a>
+      </div>
+      <div class="cert-card reveal">
+        <div class="cert-icon">[✓]</div>
+        <h3>Python Programming Zero to Hero: Complete Python Bootcamp</h3>
+        <div class="cert-issuer">Guvi · Issued May 2024</div>
+        <div class="cert-meta">Credential ID <span>8cte0178173Rkv075p</span></div>
+        <a href="https://www.guvi.in/verify-certificate?id=8cte0178173Rkv075p" class="cert-link" target="_blank" rel="noopener">Verify credential ↗</a>
+      </div>
+      <div class="cert-card reveal">
+        <div class="cert-icon">[✓]</div>
+        <h3>100 Days of Python — Advanced</h3>
+        <div class="cert-issuer">Guvi · Issued Jun 2024</div>
+        <div class="cert-meta">Credential ID <span>01a1D5R67O57o17y7P</span></div>
+        <a href="https://www.guvi.in/verify-certificate?id=01a1D5R67O57o17y7P" class="cert-link" target="_blank" rel="noopener">Verify credential ↗</a>
+      </div>
+      <div class="cert-card reveal">
+        <div class="cert-icon">[✓]</div>
+        <h3>100 Days of Python — Expert</h3>
+        <div class="cert-issuer">Guvi · Issued Jun 2024</div>
+        <div class="cert-meta">Credential ID <span>o5Xkl17475za6m171F</span></div>
+        <a href="https://www.guvi.in/verify-certificate?id=o5Xkl17475za6m171F" class="cert-link" target="_blank" rel="noopener">Verify credential ↗</a>
+      </div>
+      <div class="cert-card reveal">
+        <div class="cert-icon">[✓]</div>
+        <h3>Java for Beginners</h3>
+        <div class="cert-issuer">Guvi · Issued Nov 2024</div>
+        <div class="cert-meta">Credential ID <span>231111Y1H36xFd5l77</span></div>
+        <a href="https://www.guvi.in/verify-certificate?id=231111Y1H36xFd5l77" class="cert-link" target="_blank" rel="noopener">Verify credential ↗</a>
+      </div>
+      <div class="cert-card reveal">
+        <div class="cert-icon">[✓]</div>
+        <h3>Database Design</h3>
+        <div class="cert-issuer">Oracle Academy · Issued 25 Oct 2024</div>
+        <div class="cert-meta">Award of Course Completion <span>Satisfactory completion of all coursework</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="now" style="background:var(--bg-alt); border-top:1px solid var(--line-soft); border-bottom:1px solid var(--line-soft);">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div>
+        <div class="eyebrow">Now</div>
+        <h2>Currently learning &amp; where this is headed.</h2>
+      </div>
+    </div>
+    <div class="now-grid">
+      <div class="now-card reveal">
+        <h3>Currently learning</h3>
+        <p>Deepening the skills that turn a finished notebook into something a team can actually rely on.</p>
+        <div class="learn-chips">
+          <span class="learn-chip">Advanced SQL</span>
+          <span class="learn-chip">Time-series forecasting</span>
+          <span class="learn-chip">Power BI data modeling</span>
+          <span class="learn-chip">Applied statistics</span>
+        </div>
+      </div>
+      <div class="now-card reveal">
+        <h3>Career goals</h3>
+        <ul class="goal-list">
+          <li>Land a Data Science or Analytics internship where I can ship end-to-end work, not just notebooks.</li>
+          <li>Build a small portfolio of production-style projects with real deployment, not just EDA.</li>
+          <li>Grow from analytics into applied machine learning over the next two years.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div>
+        <div class="eyebrow">FAQ</div>
+        <h2>Good to know.</h2>
+      </div>
+    </div>
+    <div class="faq-list reveal">
+      <details class="faq-item">
+        <summary>Are you currently open to internships?</summary>
+        <p>Yes — actively looking for Data Science, Analytics, or BI internship opportunities, remote or in India (GMT+5:30).</p>
+      </details>
+      <details class="faq-item">
+        <summary>What's your core stack?</summary>
+        <p>Python and SQL for analysis, Pandas / Scikit-learn for modeling, and Power BI / Excel for reporting and dashboards.</p>
+      </details>
+      <details class="faq-item">
+        <summary>How fast do you respond?</summary>
+        <p>Usually within 24 hours by email — it's the fastest way to reach me.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Can I see the code behind these projects?</summary>
+        <p>Each project card links out to its GitHub repo where the notebook or workbook is available to review.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="contact-box reveal">
+      <h2>Let's talk data.</h2>
+      <p>Open to Data Science, Analytics, and ML internship opportunities. Reach out directly — I reply fast.</p>
+      <div class="contact-meta">
+        <div>Status<b>Open to work</b></div>
+        <div>Timezone<b>GMT+5:30</b></div>
+        <div>Response time<b>&lt; 24 hours</b></div>
+      </div>
+      <div class="contact-links">
+        <a href="mailto:lakshayparashar567@gmail.com" class="btn btn-primary magnetic">Email me</a>
+        <a href="https://www.linkedin.com/in/lakshayparashar2005" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">LinkedIn</a>
+        <a href="https://github.com/lakshay567" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">GitHub</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap footer-inner">
+    <p>&copy; 2026 Lakshay Parashar</p>
+    <div class="footer-links">
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#certs">Certificates</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <p>Built with HTML, CSS &amp; a lot of coffee</p>
+  </div>
+</footer>
+
+<button class="to-top" id="toTop" aria-label="Back to top">↑</button>
+
+<div class="cmd-overlay" id="cmdOverlay" role="dialog" aria-modal="true" aria-label="Command palette">
+  <div class="cmd-modal">
+    <div class="cmd-input-row">
+      <span>⌘</span>
+      <input type="text" class="cmd-input" id="cmdInput" placeholder="Jump to a section or project…" aria-label="Search sections and projects">
+    </div>
+    <div class="cmd-list" id="cmdList"></div>
+  </div>
+</div>
+
+<script>
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // loader
+  window.addEventListener('load', () => {
+    setTimeout(() => document.getElementById('loader').classList.add('hide'), 350);
+  });
+
+  // scroll progress bar
+  const progressEl = document.getElementById('scrollProgress');
+  function updateProgress(){
+    const h = document.documentElement;
+    const scrolled = (h.scrollTop) / (h.scrollHeight - h.clientHeight) * 100;
+    progressEl.style.width = scrolled + '%';
+  }
+  document.addEventListener('scroll', updateProgress, { passive:true });
+  updateProgress();
+
+  // back to top
+  const toTopBtn = document.getElementById('toTop');
+  document.addEventListener('scroll', () => {
+    toTopBtn.classList.toggle('show', window.scrollY > 600);
+  }, { passive:true });
+  toTopBtn.addEventListener('click', () => window.scrollTo({ top:0, behavior: reduced ? 'auto' : 'smooth' }));
+
+  // mobile nav
+  const navToggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+  navToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+  // rotating role line
+  const roles = ["Data Scientist in training", "Machine Learning enthusiast", "Business Intelligence builder", "Aspiring FAANG analyst"];
+  const roleEl = document.getElementById('roleLine');
+  let ri = 0, ci = 0, deleting = false;
+  function typeRole(){
+    if(reduced){ roleEl.innerHTML = roles[0]; return; }
+    const full = roles[ri];
+    ci += deleting ? -1 : 1;
+    roleEl.innerHTML = full.slice(0, ci) + '<span class="cursor"></span>';
+    let delay = deleting ? 35 : 65;
+    if(!deleting && ci === full.length){ delay = 1400; deleting = true; }
+    else if(deleting && ci === 0){ deleting = false; ri = (ri+1) % roles.length; delay = 300; }
+    setTimeout(typeRole, delay);
+  }
+  typeRole();
+
+  // sparkline draw
+  (function(){
+    const pts = [4,10,8,16,14,22,19,28,24,34,30,40,36,48,44,58];
+    const w = 300, h = 64;
+    const step = w / (pts.length - 1);
+    const coords = pts.map((v,i) => `${(i*step).toFixed(1)},${(h - v).toFixed(1)}`).join(' ');
+    const line = document.getElementById('sparkLine');
+    if(reduced){ line.setAttribute('points', coords); return; }
+    let progress = 0;
+    const full = pts.map((v,i) => [i*step, h-v]);
+    function draw(){
+      progress += 0.03;
+      if(progress > 1) progress = 1;
+      const count = Math.max(2, Math.floor(full.length * progress));
+      line.setAttribute('points', full.slice(0,count).map(p=>p.join(',')).join(' '));
+      if(progress < 1) requestAnimationFrame(draw);
+    }
+    requestAnimationFrame(draw);
+  })();
+
+  // count-up metrics
+  document.querySelectorAll('.metric .num').forEach(el => {
+    const target = parseInt(el.dataset.target, 10);
+    if(reduced){ el.textContent = target; return; }
+    let cur = 0;
+    const step = Math.max(1, Math.ceil(target / 40));
+    const tick = () => {
+      cur += step;
+      if(cur >= target){ el.textContent = target; return; }
+      el.textContent = cur;
+      requestAnimationFrame(tick);
+    };
+    setTimeout(tick, 600);
+  });
+
+  // scroll reveal + skill bar fill
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if(e.isIntersecting){
+        e.target.classList.add('in');
+        e.target.querySelectorAll('.skill-fill').forEach(fill => {
+          fill.style.width = fill.dataset.level + '%';
+        });
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // project filters
+  const filterBar = document.getElementById('filterBar');
+  const projectCards = document.querySelectorAll('#projectsList .project-card');
+  filterBar.addEventListener('click', (e) => {
+    const btn = e.target.closest('.filter-btn');
+    if(!btn) return;
+    filterBar.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const f = btn.dataset.filter;
+    projectCards.forEach(card => {
+      const cats = (card.dataset.cat || '').split(' ');
+      const show = f === 'all' || cats.includes(f);
+      card.classList.toggle('is-hidden', !show);
+    });
+  });
+
+  // magnetic buttons
+  if(!reduced){
+    document.querySelectorAll('.magnetic').forEach(btn => {
+      btn.addEventListener('mousemove', (e) => {
+        const r = btn.getBoundingClientRect();
+        const x = e.clientX - r.left - r.width/2;
+        const y = e.clientY - r.top - r.height/2;
+        btn.style.transform = `translate(${x*0.18}px, ${y*0.35}px)`;
+      });
+      btn.addEventListener('mouseleave', () => { btn.style.transform = 'translate(0,0)'; });
+    });
+  }
+
+  // command palette
+  const cmdOverlay = document.getElementById('cmdOverlay');
+  const cmdInput = document.getElementById('cmdInput');
+  const cmdList = document.getElementById('cmdList');
+  const cmdOpenBtn = document.getElementById('cmdOpen');
+
+  const cmdItems = [
+    { label:'About', tag:'section', target:'#about' },
+    { label:'Skills', tag:'section', target:'#skills' },
+    { label:'Projects', tag:'section', target:'#projects' },
+    { label:'Experience', tag:'section', target:'#experience' },
+    { label:'Certificates', tag:'section', target:'#certs' },
+    { label:'Now', tag:'section', target:'#now' },
+    { label:'FAQ', tag:'section', target:'#faq' },
+    { label:'Contact', tag:'section', target:'#contact' },
+  ];
+  document.querySelectorAll('#projectsList .project-card').forEach(card => {
+    cmdItems.push({ label: card.dataset.title, tag:'project', target:'#projects' });
+  });
+
+  function renderCmdList(query){
+    const q = query.trim().toLowerCase();
+    const matches = cmdItems.filter(i => i.label.toLowerCase().includes(q));
+    cmdList.innerHTML = '';
+    if(matches.length === 0){
+      cmdList.innerHTML = '<div class="cmd-empty">No matches. Try a different term.</div>';
+      return;
+    }
+    matches.forEach((item, idx) => {
+      const div = document.createElement('div');
+      div.className = 'cmd-item' + (idx === 0 ? ' active' : '');
+      div.innerHTML = `<span>${item.label}</span><span class="tag">${item.tag}</span>`;
+      div.addEventListener('click', () => {
+        document.querySelector(item.target)?.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth' });
+        closeCmd();
+      });
+      cmdList.appendChild(div);
+    });
+  }
+
+  function openCmd(){
+    cmdOverlay.classList.add('open');
+    cmdInput.value = '';
+    renderCmdList('');
+    setTimeout(() => cmdInput.focus(), 50);
+  }
+  function closeCmd(){
+    cmdOverlay.classList.remove('open');
+  }
+  cmdOpenBtn.addEventListener('click', openCmd);
+  cmdOverlay.addEventListener('click', (e) => { if(e.target === cmdOverlay) closeCmd(); });
+  cmdInput.addEventListener('input', () => renderCmdList(cmdInput.value));
+  cmdInput.addEventListener('keydown', (e) => {
+    if(e.key === 'Enter'){
+      const first = cmdList.querySelector('.cmd-item');
+      first?.click();
+    }
+  });
+  document.addEventListener('keydown', (e) => {
+    if((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k'){
+      e.preventDefault();
+      cmdOverlay.classList.contains('open') ? closeCmd() : openCmd();
+    }
+    if(e.key === 'Escape') closeCmd();
+  });
+
+  // ================= PROJECT DETAILS MODAL =================
+  const PROJECT_DATA = {
+    'ecommerce-sales-dashboard': {
+      num: 'Project 01', status: 'Live', title: 'E-commerce Sales Dashboard',
+      githubUser: 'lakshay567', repo: 'ecommerce-sales-dashboard',
+      overview: 'An interactive Power BI dashboard built to give an e-commerce operations team a single, self-serve view of sales, returns, and customer behaviour. It targets non-technical stakeholders who need answers fast without opening a spreadsheet.',
+      problem: 'The ops team had to manually trawl raw order exports every week just to figure out which product categories, regions, or customer segments were underperforming — a slow, error-prone, spreadsheet-heavy process.',
+      solution: 'A cleaned and modelled e-commerce dataset feeds a Power BI report with drill-down by category, region, and time period, so anyone on the team can answer a sales question in seconds instead of hours.',
+      techStack: ['Power BI', 'Excel', 'DAX', 'Power Query', 'SQL'],
+      workflow: ['Idea', 'Planning', 'Data Collection', 'Data Cleaning', 'Modelling (DAX)', 'Dashboard Build', 'Testing', 'Deployment'],
+      features: ['Interactive Dashboard', 'Data Cleaning Pipeline', 'Category & Region Filtering', 'Drill-down Charts', 'Responsive Report Layout'],
+      implementation: [
+        { k: 'Architecture', v: 'Star-schema data model — a central fact table of order lines joined to dimension tables for product, customer, region, and date.' },
+        { k: 'Data Processing', v: 'Power Query handles ingestion, type casting, deduplication, and null-handling before the model layer ever sees the data.' },
+        { k: 'Business Logic', v: 'DAX measures calculate revenue, return rate, and customer segment contribution, with time-intelligence functions for period-over-period comparisons.' },
+        { k: 'Key Functions', v: 'Core DAX measures: total revenue, return rate %, average order value, and a rolling 4-week trend measure used across every visual.' }
+      ],
+      challenges: ['Raw order exports had inconsistent date formats and duplicate rows across weekly files.', 'Slow report performance once the dataset grew past ~50k rows.'],
+      solutionsToChallenges: ['Standardised all date/number formats and de-duplicated records at the Power Query stage before they reached the model.', 'Rebuilt the model as a proper star schema and moved repeated logic into DAX measures instead of calculated columns, cutting load time significantly.'],
+      learnings: 'Hands-on experience designing a star-schema data model, writing production-style DAX (time intelligence, filter context), and translating a vague ops complaint into a concrete, testable dashboard requirement.',
+      futureImprovements: 'Add a forecasting visual using simple exponential smoothing, and automate the weekly data refresh with a scheduled Power Query pipeline instead of a manual import.',
+      screenshots: []
+    },
+    'excel-automation-dashboard': {
+      num: 'Project 02', status: 'Live', title: 'Excel Automation Dashboard',
+      githubUser: 'lakshay567', repo: 'excel-automation-dashboard',
+      overview: 'A VBA-driven Excel workbook built to remove the manual grind out of a recurring weekly report — refreshing pivots, reformatting summaries, and rebuilding charts by hand.',
+      problem: 'A recurring weekly report meant manually refreshing pivot tables, reformatting summary sheets, and rebuilding charts every single time — the same repetitive steps, done by hand, week after week.',
+      solution: 'A single macro-driven workbook where one button click refreshes all data connections, reformats the summary tables, and regenerates every chart, turning a multi-step manual chore into a one-click action.',
+      techStack: ['Excel', 'VBA', 'Pivot Tables', 'Power Query'],
+      workflow: ['Idea', 'Planning', 'Requirement Mapping', 'Macro Development', 'Formatting Logic', 'Testing', 'Deployment'],
+      features: ['One-click Refresh', 'Automated Formatting', 'Dynamic Pivot Tables', 'Auto-generated Charts', 'Error Handling Alerts'],
+      implementation: [
+        { k: 'Architecture', v: 'A control sheet holds the trigger button, which calls a master VBA subroutine that orchestrates smaller task-specific macros in sequence.' },
+        { k: 'Libraries / Tools', v: 'Native VBA object model (Workbook, Worksheet, PivotTable, ChartObject) — no external libraries, kept dependency-free for portability.' },
+        { k: 'Business Logic', v: 'Macros validate the incoming data range before refreshing, so a malformed weekly export fails loudly instead of silently producing a broken report.' },
+        { k: 'Key Functions', v: 'RefreshAllPivots(), FormatSummarySheet(), and RebuildCharts() are chained together behind a single "Run Report" button.' }
+      ],
+      challenges: ['Pivot table ranges broke whenever the raw data sheet changed size week to week.', 'Chart formatting had to be reapplied manually after every refresh.'],
+      solutionsToChallenges: ['Switched static ranges to dynamic named ranges so pivots automatically resize with the incoming data.', 'Wrote formatting logic directly into the macro so every chart is rebuilt with consistent styling on each run.'],
+      learnings: 'Practical VBA scripting, dynamic named ranges, and how to design a "one-button" workflow that a non-technical colleague can run without breaking anything.',
+      futureImprovements: 'Migrate the automation logic to Power Query + Power Automate for a more maintainable, code-light version of the same workflow.',
+      screenshots: []
+    },
+    'stock-market-analysis': {
+      num: 'Project 03', status: 'In progress', title: 'Stock Market Analysis',
+      githubUser: 'lakshay567', repo: 'stock-market-analysis',
+      overview: 'An exploratory and statistical analysis of historical stock price data, built to test whether simple statistical signals hold any real explanatory value across a basket of tickers.',
+      problem: 'Understanding whether simple statistical signals in historical price data — trend, volatility, correlation — hold any real explanatory value, rather than just assuming technical indicators work.',
+      solution: 'A Python-based analysis pipeline that pulls historical price data, decomposes trend and seasonality, measures volatility, and studies cross-ticker correlation, with the groundwork laid for a baseline forecasting model.',
+      techStack: ['Python', 'Pandas', 'NumPy', 'Matplotlib', 'Scikit-Learn'],
+      workflow: ['Idea', 'Planning', 'Data Collection', 'Data Cleaning', 'Exploratory Analysis', 'Modelling', 'Testing', 'Deployment (in progress)'],
+      features: ['Data Cleaning', 'Trend Decomposition', 'Volatility Analysis', 'Correlation Charts', 'Machine Learning (baseline model, in progress)'],
+      implementation: [
+        { k: 'Architecture', v: 'A notebook-driven pipeline: ingestion → cleaning → feature engineering → analysis/visualisation, with reusable functions factored into a small utils module.' },
+        { k: 'Data Processing', v: 'Pandas handles missing-value interpolation, resampling to consistent trading-day frequency, and log-return calculation.' },
+        { k: 'Algorithms', v: 'Rolling-window volatility, seasonal-trend decomposition, and Pearson correlation across tickers; a baseline regression model is in progress for short-horizon volatility forecasting.' },
+        { k: 'Key Functions', v: 'compute_log_returns(), rolling_volatility(), and a correlation-matrix builder used across every ticker pair in the basket.' }
+      ],
+      challenges: ['Missing trading days and inconsistent tickers made naive time-series comparisons unreliable.', 'Volatility clustering made a simple linear model perform poorly out of the box.'],
+      solutionsToChallenges: ['Resampled all series to a shared trading calendar and forward-filled short gaps before any comparison.', 'Currently experimenting with a GARCH-style rolling-window approach instead of a single static regression.'],
+      learnings: 'Time-series specific data cleaning, the difference between price and log-return stationarity, and why volatility forecasting is a fundamentally harder problem than price-trend analysis.',
+      futureImprovements: 'Finish the baseline volatility-forecasting model, backtest it against a simple buy-and-hold benchmark, and add an interactive Plotly dashboard for exploring individual tickers.',
+      screenshots: []
+    },
+    'student-management-system': {
+      num: 'Project 04', status: 'Live', title: 'Student Management System',
+      githubUser: 'lakshay567', repo: 'student-management-system',
+      overview: 'A menu-driven console application for managing student records in memory, covering the full add–view–search–update–delete lifecycle through a single Python loop.',
+      problem: 'Small classes or study groups need a fast, dependency-free way to track student names without setting up a database or spreadsheet for something this small.',
+      solution: 'A Python CLI backed by a single list, offering add, display, search, update, delete, and total-count operations through a numbered menu that loops until the user exits.',
+      techStack: ['Python', 'Lists', 'CLI I/O', 'Control Flow'],
+      workflow: ['Idea', 'Planning', 'Menu Design', 'Core CRUD Logic', 'Input Validation', 'Testing'],
+      features: ['Add Student', 'Display All Students', 'Search Student by Name', 'Update Student Name', 'Delete Student', 'Live Student Count', 'Menu-driven Loop'],
+      implementation: [
+        { k: 'Architecture', v: 'A single in-memory list holds every student name. An infinite while loop re-prints the menu each cycle and routes the numeric choice through if/elif branches until choice 7 (Exit) is selected.' },
+        { k: 'Data Structure', v: 'Uses Python\'s built-in list as the entire data store — append() to add a record, index() and remove() to update or delete one, and len() to report the total.' },
+        { k: 'Core Logic', v: 'Search and update both rely on an "in" membership check plus .index() to locate a record before acting on it, with a dedicated "not found" branch for missing names.' },
+        { k: 'Key Functions', v: 'Built entirely on core built-ins — append(), remove(), index(), len(), and input() — rather than custom functions or classes, keeping the whole program readable inside one loop.' }
+      ],
+      challenges: ['Using the student\'s name as the lookup key means duplicate names can update or delete the wrong record.', 'No persistence — all data is lost as soon as the program exits.'],
+      solutionsToChallenges: ['Scoped the project to single-session use and documented the trade-off rather than adding complexity; a future version would move to unique IDs.', 'Flagged local file/CSV storage as the natural next step instead of adding scope creep to the console version.'],
+      learnings: 'Reinforced core Python fundamentals — list manipulation, menu-driven program structure, input validation, and designing a clean CRUD loop from scratch without external libraries.',
+      futureImprovements: 'Refactor into a Student class with a unique roll number, add persistent storage via CSV or SQLite, and validate against duplicate names on entry.',
+      screenshots: []
+    },
+    'dict-inventory-management': {
+      num: 'Project 05', status: 'Live', title: 'Dictionary-Based Inventory Management System',
+      githubUser: 'lakshay567', repo: 'dict-inventory-management',
+      overview: 'A console-based inventory system that models each product as a nested dictionary, supporting stock control, sales tracking, and basic business reporting from a single menu loop.',
+      problem: 'Small sellers need visibility into stock levels, revenue, and top/low performers without setting up a full database or point-of-sale system.',
+      solution: 'A Python CLI where every product is a dictionary of attributes (name, category, brand, price, stock, sold) keyed by product ID inside one master dictionary, driving a 19-option menu spanning CRUD and analytics.',
+      techStack: ['Python', 'Dictionaries', 'Nested Data Structures', 'CLI I/O'],
+      workflow: ['Idea', 'Planning', 'Data Modelling', 'CRUD Logic', 'Sales & Reporting Logic', 'Testing'],
+      features: ['Display Products', 'Add / Search / Update / Delete Product', 'Sell & Restock Product', 'Inventory Value', 'Revenue Report', 'Top Selling & Most/Least Expensive Product', 'Low Stock & Out of Stock Reports'],
+      implementation: [
+        { k: 'Architecture', v: 'A nested dictionary ({product_id: {Name, Category, Brand, Price, Stock, Sold}}) is the single source of truth, looped inside one while-True menu with a chain of if/elif branches, one per operation.' },
+        { k: 'Data Structure', v: 'Each product is itself a dictionary, so the whole inventory is a dictionary of dictionaries — product ID as the key gives direct lookup for add, search, update, and delete.' },
+        { k: 'Business Logic', v: 'Sell Product decrements Stock and increments Sold in the same transaction; Revenue and Top-Selling reports derive their numbers by iterating inventory.values() and multiplying Price × Sold on the fly rather than storing a separate running total.' },
+        { k: 'Key Functions', v: 'Built on .items() and .values() iteration, del for deletion behind a yes/no confirmation, and running max/min comparisons for the Top Selling, Most Expensive, and Cheapest Product reports.' }
+      ],
+      challenges: ['Deleting a product needed a safety check so a misclick couldn\'t wipe stock data.', 'Reports like Top Selling and Most Expensive needed derived values (Price × Sold) rather than stored fields.'],
+      solutionsToChallenges: ['Added a confirm (yes/no) prompt that runs before any delete actually executes.', 'Computed revenue and rankings on the fly during each report by looping through inventory.values() rather than caching totals that could go stale.'],
+      learnings: 'Practical experience modelling real-world entities as nested dictionaries, writing derived business reports (revenue, top seller, low-stock alerts) from raw data, and designing a menu system that scales to 19 operations without becoming unreadable.',
+      futureImprovements: 'Refactor into a Product class and an Inventory class for a true object-oriented design, add CSV/JSON persistence so data survives a restart, and implement the remaining Search By Price and Dashboard menu options.',
+      screenshots: []
+    }
+  };
+
+  const pmOverlay = document.getElementById('pmOverlay');
+  const pmModal = document.getElementById('pmModal');
+  const pmBody = document.getElementById('pmBody');
+  const pmTitle = document.getElementById('pmTitle');
+  const pmNum = document.getElementById('pmNum');
+  const pmClose = document.getElementById('pmClose');
+  let lastFocused = null;
+
+  function renderModal(id){
+    const p = PROJECT_DATA[id];
+    if(!p) return;
+    pmNum.textContent = p.num;
+    pmTitle.textContent = p.title;
+
+    const galleryHtml = p.screenshots && p.screenshots.length
+      ? `<div class="pm-section"><h4>Project Screenshots</h4><div class="pm-gallery">${p.screenshots.map(s => `<img src="${s}" alt="${p.title} screenshot" loading="lazy">`).join('')}</div></div>`
+      : '';
+
+    pmBody.innerHTML = `
+      <div class="pm-section">
+        <h4>Project Overview</h4>
+        <p>${p.overview}</p>
+      </div>
+      <div class="pm-section">
+        <h4>Problem Statement</h4>
+        <p>${p.problem}</p>
+      </div>
+      <div class="pm-section">
+        <h4>Solution</h4>
+        <p>${p.solution}</p>
+      </div>
+      <div class="pm-section">
+        <h4>Tech Stack</h4>
+        <div class="pm-badges">${p.techStack.map(t => `<span class="pm-badge">${t}</span>`).join('')}</div>
+      </div>
+      <div class="pm-section">
+        <h4>Project Workflow</h4>
+        <div class="pm-workflow">${p.workflow.map((step, i) => `<div class="pm-wf-step"><span class="pm-wf-dot">${i+1}</span><span>${step}</span>${i < p.workflow.length - 1 ? '<span class="pm-wf-arrow">↓</span>' : ''}</div>`).join('')}</div>
+      </div>
+      <div class="pm-section">
+        <h4>Key Features</h4>
+        <div class="pm-features">${p.features.map(f => `<div class="pm-feature"><span class="tick">✓</span>${f}</div>`).join('')}</div>
+      </div>
+      <div class="pm-section">
+        <h4>Implementation</h4>
+        <div class="pm-impl-grid">${p.implementation.map(item => `<div class="pm-impl-item"><span class="k">${item.k}</span><p>${item.v}</p></div>`).join('')}</div>
+      </div>
+      <div class="pm-section">
+        <h4>Challenges &amp; Solutions</h4>
+        <div class="pm-cs-grid">
+          <div class="pm-cs-card"><div class="k">Challenges</div><ul>${p.challenges.map(c => `<li>${c}</li>`).join('')}</ul></div>
+          <div class="pm-cs-card"><div class="k">Solutions</div><ul>${p.solutionsToChallenges.map(s => `<li>${s}</li>`).join('')}</ul></div>
+        </div>
+      </div>
+      <div class="pm-section">
+        <h4>Key Learnings</h4>
+        <p>${p.learnings}</p>
+      </div>
+      <div class="pm-section">
+        <h4>Future Improvements</h4>
+        <p>${p.futureImprovements}</p>
+      </div>
+      ${galleryHtml}
+    `;
+  }
+
+  function openModal(id){
+    lastFocused = document.activeElement;
+    renderModal(id);
+    document.body.classList.add('pm-lock');
+    pmOverlay.classList.add('open');
+    pmClose.focus();
+  }
+  function closeModal(){
+    pmOverlay.classList.remove('open');
+    document.body.classList.remove('pm-lock');
+    if(lastFocused) lastFocused.focus();
+  }
+
+  document.querySelectorAll('.btn-details').forEach(btn => {
+    btn.addEventListener('click', () => openModal(btn.dataset.project));
+  });
+  pmClose.addEventListener('click', closeModal);
+  pmOverlay.addEventListener('click', (e) => { if(e.target === pmOverlay) closeModal(); });
+  document.addEventListener('keydown', (e) => {
+    if(e.key === 'Escape' && pmOverlay.classList.contains('open')) closeModal();
+  });
+</script>
+
+</body>
+</html>
